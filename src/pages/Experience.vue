@@ -77,7 +77,7 @@
       <p class="cert-desc">
         Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata. Platform ini dirancang untuk mempermudah layanan transportasi publik Jakarta dengan antarmuka user-friendly dan sistem yang scalable.
       </p>
-      <a class="card-link" href="/Sertifikat/Haki _compressed.pdf" target="_blank" rel="noopener noreferrer">Lihat Sertifikat</a>
+      <a class="card-link" href="/Sertifikat/Haki_compressed.pdf" target="_blank" rel="noopener noreferrer">Lihat Sertifikat</a>
     </div>
 
     <div class="experience-card" id="bnsp-certificate">
@@ -98,9 +98,9 @@
         Pengalaman Asisten Praktikum bukan sekadar peran administrasi—ini adalah bukti nyata dari kepemimpinan, kemampuan mengajar, dan penguasaan materi yang melampaui teori. Membimbing puluhan mahasiswa setiap semester membuktikan kedalaman pengetahuan dan kemampuan mentransfer expertise kepada orang lain.
       </p>
       <div class="cert-links">
-        <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat Asprak Analisis Perancangan Sistem Informasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Analisis Sistem</a>
-        <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat Asprak Pengembangan Aplikasi Website_compressed.pdf" target="_blank" rel="noopener noreferrer">Web Development</a>
-        <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat Asprak Sistem Operasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Sistem Operasi</a>
+        <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat_Asprak_Analisis_Perancangan_Sistem_Informasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Analisis Sistem</a>
+        <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat_Asprak_Pengembangan_Aplikasi_Website_compressed.pdf" target="_blank" rel="noopener noreferrer">Web Development</a>
+        <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertikat_Asprak_Sistem_Operasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Sistem Operasi</a>
         <a class="card-link" href="/Sertifikat/Sertifikat_Arsitektur_Enterprise.jpg" target="_blank" rel="noopener noreferrer">Arsitektur Enterprise</a>
       </div>
     </div>

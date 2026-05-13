@@ -12,6 +12,15 @@
         :id="project.id"
         class="project-card"
       >
+        <a
+          v-if="project.image"
+          class="project-image-link"
+          :href="project.image"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img :src="project.image" :alt="project.title" class="project-image" />
+        </a>
         <h2>{{ project.icon }} {{ project.title }}</h2>
         <span class="badge">{{ project.badge }}</span>
         <p class="subtitle">{{ project.subtitle }}</p>
@@ -25,7 +34,7 @@
             {{ cert.label }}
           </a>
         </div>
-        <a v-else class="card-link" :href="`/projects#${project.id}`" target="_blank" rel="noopener noreferrer">
+        <a v-else class="card-link" :href="`#${project.id}`">
           Lihat Detail
         </a>
       </article>
@@ -41,6 +50,7 @@ const projects = [
     title: 'Sistem POS Kasir Toko Amira',
     badge: 'React JS • Jira • Project Management',
     subtitle: 'Project Tugas Besar',
+    image: '/Projects/Jira%20POS%20Kasir%20Toko%20Amira.png',
     points: [
       { label: 'Role', value: 'Project Manager & System Analyst' },
       { label: 'Tools', value: 'Jira (sprint, backlog, issue tracking)' },
@@ -59,7 +69,7 @@ const projects = [
       { label: 'Scope', value: 'Public transit information platform' },
     ],
     certLinks: [
-      { label: 'Sertifikat HAKI', url: '/Sertifikat/Haki _compressed.pdf' },
+      { label: 'Sertifikat HAKI', url: '/Sertifikat/Haki_compressed.pdf' },
     ],
   },
   {
@@ -134,6 +144,20 @@ h1 {
   border-radius: 14px;
   padding: 1.35rem 1.4rem 1.2rem;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project-image-link {
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .project-card h2 {
