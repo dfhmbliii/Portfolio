@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "regions": ["sin1"],
+  "env": {
+    "VITE_APP_TITLE": "Muhammad Dafa Hambali Portfolio"
+  }
+}
