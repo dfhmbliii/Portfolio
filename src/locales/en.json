@@ -162,4 +162,50 @@
     "haki_desc": "The Copyright Certificate verifies the ability to develop innovative solutions addressing real-world problems.",
     "cert_view": "View Certificate"
   }
+  ,
+  "home": {
+    "eyebrow": "Software & Systems",
+    "name": "Muhammad Dafa Hambali",
+    "description": "System Analyst and Full-Stack Developer focusing on web applications, UX, and data-driven decision support.",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects",
+      "gpa": "GPA"
+    },
+    "actions": {
+      "viewPortfolio": "View Portfolio",
+      "downloadCV": "Download CV"
+    }
+  },
+  "about": {
+    "title": "Professional Journey",
+    "p1": "I graduated with a Bachelor's degree in Information Systems from Telkom University Jakarta with a GPA of 3.64/4.00.",
+    "p2": "During my studies I applied theory to practice. As a Teaching Assistant for 4 courses, I gained experience from system modeling (UML, BPMN, AHP) to backend implementation (Laravel, MySQL).",
+    "p3": "During my internship at PT Telkom Akses, I designed and developed an internal e-procurement system that streamlined procurement processes.",
+    "p4": "I am now ready to contribute as a System Analyst or Backend Developer in the tech industry—focusing on code quality, clear documentation, and user-centric solutions.",
+    "conclusion": "Open to collaboration and opportunities to build impactful software."
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Feel free to reach out via email, LinkedIn, or social platforms.",
+    "cards": {
+      "email": "Email",
+      "email_action": "Send Email →",
+      "location": "Location",
+      "location_action": "Based in West Java",
+      "linkedin": "LinkedIn",
+      "linkedin_action": "Visit Profile →",
+      "github": "GitHub",
+      "github_action": "View Repos →",
+      "instagram": "Instagram",
+      "instagram_action": "Follow Me →",
+      "whatsapp": "WhatsApp",
+      "whatsapp_action": "Send Message →"
+    },
+    "cta": {
+      "heading": "Let's Build Something Together",
+      "text": "I am available for freelance projects, collaborations, and full-time opportunities.",
+      "button": "Contact Me"
+    }
+  }
 }

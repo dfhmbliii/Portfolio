@@ -162,4 +162,50 @@
     "haki_desc": "Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata.",
     "cert_view": "Lihat Sertifikat"
   }
+  ,
+  "home": {
+    "eyebrow": "Perangkat Lunak & Sistem",
+    "name": "Muhammad Dafa Hambali",
+    "description": "System Analyst dan Full-Stack Developer yang fokus pada aplikasi web, UX, dan decision support berbasis data.",
+    "stats": {
+      "experience": "Tahun Pengalaman",
+      "projects": "Proyek",
+      "gpa": "IPK"
+    },
+    "actions": {
+      "viewPortfolio": "Lihat Portofolio",
+      "downloadCV": "Unduh CV"
+    }
+  },
+  "about": {
+    "title": "Perjalanan Profesional",
+    "p1": "Saya lulus S1 Sistem Informasi dari Telkom University Jakarta dengan IPK 3.64/4.00.",
+    "p2": "Selama kuliah saya menerapkan teori ke praktik. Sebagai Asisten Praktikum di 4 mata kuliah, saya memperoleh pengalaman dari pemodelan sistem (UML, BPMN, AHP) hingga implementasi backend (Laravel, MySQL).",
+    "p3": "Selama magang di PT Telkom Akses, saya merancang dan mengembangkan sistem e-procurement internal yang merampingkan proses pengadaan.",
+    "p4": "Kini, saya siap berkontribusi sebagai System Analyst atau Backend Developer di industri teknologi—dengan fokus pada kualitas kode, dokumentasi yang jelas, dan solusi yang user-centric.",
+    "conclusion": "Terbuka untuk kolaborasi dan peluang untuk membangun perangkat lunak yang berdampak."
+  },
+  "contact": {
+    "title": "Kontak",
+    "intro": "Jangan ragu menghubungi melalui email, LinkedIn, atau platform sosial.",
+    "cards": {
+      "email": "Email",
+      "email_action": "Kirim Email →",
+      "location": "Lokasi",
+      "location_action": "Berlokasi di Jawa Barat",
+      "linkedin": "LinkedIn",
+      "linkedin_action": "Kunjungi Profil →",
+      "github": "GitHub",
+      "github_action": "Lihat Repos →",
+      "instagram": "Instagram",
+      "instagram_action": "Ikuti →",
+      "whatsapp": "WhatsApp",
+      "whatsapp_action": "Kirim Pesan →"
+    },
+    "cta": {
+      "heading": "Mari Bangun Sesuatu Bersama",
+      "text": "Saya tersedia untuk proyek freelance, kolaborasi, dan peluang kerja penuh waktu.",
+      "button": "Hubungi Saya"
+    }
+  }
 }
