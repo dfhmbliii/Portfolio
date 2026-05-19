@@ -1,14 +1,14 @@
 <template>
   <section class="experience-section">
-    <h1>Experience & Pembelajaran</h1>
+    <h1>{{ $t('experience_page.title') }}</h1>
 
     <div class="experience-card">
-      <h2>PT Telkom Akses</h2>
-      <h3>Procurement & Management Internship</h3>
-      <p class="period">Internship</p>
+      <h2>{{ $t('experience_page.telkom_access.company') }}</h2>
+      <h3>{{ $t('experience_page.telkom_access.role') }}</h3>
+      <p class="period">{{ $t('experience_page.telkom_access.period') }}</p>
       <ul>
-        <li>Merancang dan mengembangkan website e-procurement internal perusahaan untuk merampingkan proses pengadaan dan manajemen kemitraan.</li>
-        <li>Berkolaborasi dengan pembimbing lapangan dan tim internal untuk memastikan sistem berjalan sesuai alur kerja divisi.</li>
+        <li>{{ $t('experience_page.telkom_access.bullet1') || 'Merancang dan mengembangkan website e-procurement internal perusahaan untuk merampingkan proses pengadaan dan manajemen kemitraan.' }}</li>
+        <li>{{ $t('experience_page.telkom_access.bullet2') || 'Berkolaborasi dengan pembimbing lapangan dan tim internal untuk memastikan sistem berjalan sesuai alur kerja divisi.' }}</li>
       </ul>
     </div>
 
@@ -71,13 +71,11 @@
     <h2 class="section-title">Sertifikat & Lisensi</h2>
 
     <div class="experience-card" id="haki-certificate">
-      <h3>📜 Hak Cipta (HAKI)</h3>
-      <p class="period">Kementerian Hukum dan HAM Republik Indonesia</p>
-      <p class="cert-context"><strong>Proyek:</strong> Jakarta Metro Transit Website</p>
-      <p class="cert-desc">
-        Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata. Platform ini dirancang untuk mempermudah layanan transportasi publik Jakarta dengan antarmuka user-friendly dan sistem yang scalable.
-      </p>
-      <a class="card-link" href="/Sertifikat/Haki_compressed.pdf" target="_blank" rel="noopener noreferrer">Lihat Sertifikat</a>
+      <h3>📜 {{ $t('projects.items.project-jmt.title') }}</h3>
+      <p class="period">{{ $t('experience_page.haki_issuer') || 'Kementerian Hukum dan HAM Republik Indonesia' }}</p>
+      <p class="cert-context"><strong>{{ $t('experience_page.cert_project_label') || 'Proyek:' }}</strong> {{ $t('projects.items.project-jmt.title') }}</p>
+      <p class="cert-desc">{{ $t('experience_page.haki_desc') || 'Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata.' }}</p>
+      <a class="card-link" href="/Sertifikat/Haki_compressed.pdf" target="_blank" rel="noopener noreferrer">{{ $t('experience_page.cert_view') }}</a>
     </div>
 
     <div class="experience-card" id="bnsp-certificate">
@@ -87,7 +85,7 @@
       <p class="cert-desc">
         Sertifikasi BNSP merupakan kredensial resmi yang memvalidasi kompetensi sebagai System Analyst. Diperoleh melalui analisis mendalam terhadap sistem e-katering, termasuk requirement gathering, system design dengan UML, dan business process modeling yang komprehensif.
       </p>
-      <a class="card-link" href="/Sertifikat/BNSP.jpg" target="_blank" rel="noopener noreferrer">Lihat Sertifikat</a>
+      <a class="card-link" href="/Sertifikat/BNSP.jpg" target="_blank" rel="noopener noreferrer">{{ $t('experience_page.cert_view') }}</a>
     </div>
 
     <div class="experience-card" id="teaching-assistant">

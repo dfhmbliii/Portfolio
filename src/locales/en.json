@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "Some key projects demonstrating system analysis, technical execution, and ready-to-use results.",
+    "viewDetails": "See Details",
+    "labels": {
+      "role": "Role",
+      "tools": "Tools",
+      "status": "Status",
+      "achievement": "Achievement",
+      "features": "Features",
+      "scope": "Scope",
+      "method": "Method",
+      "output": "Output",
+      "certification": "Certification",
+      "function": "Function",
+      "result": "Result",
+      "objective": "Objective"
+    }
+  ,
+    "items": {
+      "project-amira": {
+        "title": "Amira Store POS System",
+        "badge": "React JS • Jira • Project Management",
+        "subtitle": "Major coursework project",
+        "points": {
+          "role": "Project Manager & System Analyst",
+          "tools": "Jira (sprint, backlog, issue tracking)",
+          "status": "Released & Operational"
+        }
+      },
+      "project-jmt": {
+        "title": "Jakarta Metro Transit (JMT) Website",
+        "badge": "Full-Stack • IP Registered",
+        "subtitle": "Major coursework | Intellectual Property Protected",
+        "points": {
+          "achievement": "HAKI Certificate (Recorded Work)",
+          "features": "Integrated transit map, ticket simulation",
+          "scope": "Public transit information platform"
+        },
+        "certLinks": {
+          "haki": "HAKI Certificate"
+        }
+      },
+      "project-ekatering": {
+        "title": "E-Catering System Design",
+        "badge": "Figma • UI/UX • BNSP Certification",
+        "subtitle": "BNSP System Analyst Certification Project",
+        "points": {
+          "method": "System analysis & requirements",
+          "output": "Complete UI/UX design in Figma",
+          "certification": "BNSP System Analyst Certified"
+        },
+        "certLinks": {
+          "bnsp": "BNSP Certificate"
+        }
+      },
+      "project-pilihanku": {
+        "title": "Pilihanku Website",
+        "badge": "Decision Support System • AHP Algorithm",
+        "subtitle": "Final Project",
+        "points": {
+          "method": "MCDM (Multi-Criteria Decision Making) with AHP",
+          "function": "Helps prospective students choose majors",
+          "result": "Real-time calculation & recommendations"
+        }
+      },
+      "design-humas": {
+        "title": "Visual Strategy & Social Media Design for HIMSI",
+        "badge": "Figma • Social Media Management • Canva • Content Strategy",
+        "subtitle": "Campaign & visual identity",
+        "points": {
+          "objective": "Design identity and publication materials to increase engagement and student participation.",
+          "output": "Educational feed designs, event posters, and visual guidelines."
+        }
+      }
+    }
+  }
+
+  ,
+  "home": {
+    "eyebrow": "S1 Information Systems - Jakarta Campus • Telkom University",
+    "name": "Muhammad Dafa Hambali",
+    "description": "Project Manager | System Analyst | Teaching Assistant",
+    "stats": {
+      "experience": "Months Experience",
+      "projects": "Major Projects",
+      "gpa": "GPA"
+    },
+    "actions": {
+      "viewPortfolio": "View Portfolio",
+      "downloadCV": "Download CV"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "p1": "I graduated with a Bachelor's degree in Information Systems from Telkom University Jakarta with a GPA of 3.64/4.00.",
+    "p2": "During my studies I applied theory into practice. As a Teaching Assistant across 4 courses I gained experience from system modeling (UML, BPMN, AHP) to backend implementation (Laravel, MySQL).",
+    "p3": "During an internship at PT Telkom Akses, I designed and developed an internal e-procurement system that streamlined procurement processes.",
+    "skills_heading": "Skills & Tools",
+    "conclusion": "I'm ready to contribute as a System Analyst or Backend Developer with a focus on code quality, clear documentation, and user-centric solutions."
+  },
+  "experience_page": {
+    "title": "Experience & Learning",
+    "telkom_access": {
+      "company": "PT Telkom Akses",
+      "role": "Procurement & Management Internship",
+      "period": "Internship"
+    },
+    "teaching_assistant_section": "Teaching Assistant - Telkom University Jakarta",
+    "cert_view": "View Certificate",
+    "haki_issuer": "Ministry of Law and Human Rights of the Republic of Indonesia",
+    "cert_project_label": "Project:",
+    "haki_desc": "The Copyright certificate demonstrates the ability to develop innovative solutions addressing real problems. The platform is designed to ease Jakarta public transit services with a user-friendly interface and scalable architecture.",
+    "teaching_assistant": {
+      "role_label": "Role",
+      "context_label": "Role"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "intro": "Interested in collaborating or have questions? Reach out via one of the channels below. I'll reply as soon as possible! 🚀",
+    "cards": {
+      "email": "Email",
+      "email_action": "Send Email →",
+      "location": "Location",
+      "location_action": "Based in West Java",
+      "linkedin": "LinkedIn",
+      "linkedin_action": "Visit Profile →",
+      "github": "GitHub",
+      "github_action": "View Repos →",
+      "instagram": "Instagram",
+      "instagram_action": "Follow Me →",
+      "whatsapp": "WhatsApp",
+      "whatsapp_action": "Send Message →"
+    },
+    "cta": {
+      "heading": "Ready to Work Together?",
+      "text": "Let's discuss your next project or collaboration opportunity. I'm open to questions and offers!",
+      "button": "Start Conversation"
+    }
+  }
+  ,
+  "experience_page": {
+    "title": "Experience & Learning",
+    "telkom_access": {
+      "company": "PT Telkom Akses",
+      "role": "Procurement & Management Internship",
+      "period": "Internship",
+      "bullet1": "Designed and developed an internal e-procurement website to streamline procurement processes and partner management.",
+      "bullet2": "Collaborated with field supervisors and internal teams to ensure the system aligned with division workflows."
+    },
+    "haki_issuer": "Ministry of Law and Human Rights of the Republic of Indonesia",
+    "cert_project_label": "Project:",
+    "haki_desc": "The Copyright Certificate verifies the ability to develop innovative solutions addressing real-world problems.",
+    "cert_view": "View Certificate"
+  }
+}

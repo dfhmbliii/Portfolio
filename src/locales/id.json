@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "experience": "Pengalaman",
+    "contact": "Kontak"
+  },
+  "projects": {
+    "title": "Proyek",
+    "intro": "Beberapa proyek utama yang menunjukkan kombinasi analisis sistem, eksekusi teknis, dan hasil yang bisa langsung dipakai.",
+    "viewDetails": "Lihat Detail",
+    "labels": {
+      "role": "Peran",
+      "tools": "Alat",
+      "status": "Status",
+      "achievement": "Pencapaian",
+      "features": "Fitur",
+      "scope": "Ruang Lingkup",
+      "method": "Metode",
+      "output": "Hasil",
+      "certification": "Sertifikasi",
+      "function": "Fungsi",
+      "result": "Hasil",
+      "objective": "Tujuan"
+    }
+  ,
+    "items": {
+      "project-amira": {
+        "title": "Sistem POS Kasir Toko Amira",
+        "badge": "React JS • Jira • Project Management",
+        "subtitle": "Project Tugas Besar",
+        "points": {
+          "role": "Project Manager & System Analyst",
+          "tools": "Jira (sprint, backlog, issue tracking)",
+          "status": "Released & Operational"
+        }
+      },
+      "project-jmt": {
+        "title": "Website Jakarta Metro Transit (JMT)",
+        "badge": "Full-Stack • HAKI Certified",
+        "subtitle": "Project Tugas Besar | Intellectual Property Protected",
+        "points": {
+          "achievement": "Sertifikat HAKI (Surat Pencatatan Ciptaan)",
+          "features": "Peta transit terintegrasi, simulasi tiket",
+          "scope": "Platform informasi transportasi publik"
+        },
+        "certLinks": {
+          "haki": "Sertifikat HAKI"
+        }
+      },
+      "project-ekatering": {
+        "title": "E-Katering System Design",
+        "badge": "Figma • UI/UX • Sertifikasi BNSP",
+        "subtitle": "Sertifikasi BNSP System Analyst",
+        "points": {
+          "method": "Analisis sistem & kebutuhan",
+          "output": "Desain UI/UX lengkap di Figma",
+          "certification": "BNSP System Analyst Certified"
+        },
+        "certLinks": {
+          "bnsp": "Sertifikat BNSP"
+        }
+      },
+      "project-pilihanku": {
+        "title": "Website Pilihanku",
+        "badge": "Decision Support System • AHP Algorithm",
+        "subtitle": "Tugas Akhir",
+        "points": {
+          "method": "MCDM (Multi-Criteria Decision Making) dengan AHP",
+          "function": "Membantu calon mahasiswa memilih jurusan",
+          "result": "Perhitungan real-time & rekomendasi"
+        }
+      },
+      "design-humas": {
+        "title": "Strategi Visual & Social Media Design HIMSI",
+        "badge": "Figma • Social Media Management • Canva • Content Strategy",
+        "subtitle": "Kampanye & identitas visual",
+        "points": {
+          "objective": "Merancang identitas visual dan materi publikasi untuk program kerja himpunan guna meningkatkan engagement dan partisipasi mahasiswa.",
+          "output": "Desain feed edukatif, poster acara, dan panduan visual."
+        }
+      }
+    }
+  }
+
+  ,
+  "home": {
+    "eyebrow": "S1 Sistem Informasi - Kampus Jakarta • Telkom University",
+    "name": "Muhammad Dafa Hambali",
+    "description": "Project Manager | System Analyst | Teaching Assistant",
+    "stats": {
+      "experience": "Months Experience",
+      "projects": "Major Projects",
+      "gpa": "GPA"
+    },
+    "actions": {
+      "viewPortfolio": "Lihat Portofolio",
+      "downloadCV": "Unduh CV"
+    }
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "p1": "Saya lulus S1 Sistem Informasi dari Telkom University Jakarta dengan IPK 3.64/4.00.",
+    "p2": "Selama kuliah saya menerapkan teori ke praktik. Sebagai Asisten Praktikum di 4 mata kuliah, saya memperoleh pengalaman dari pemodelan sistem (UML, BPMN, AHP) hingga implementasi backend (Laravel, MySQL).",
+    "p3": "Selama magang di PT Telkom Akses, saya merancang dan mengembangkan sistem e-procurement internal yang merampingkan proses pengadaan.",
+    "skills_heading": "Keahlian & Tools",
+    "conclusion": "Kini, saya siap berkontribusi sebagai System Analyst atau Backend Developer di industri teknologi—dengan fokus pada kualitas kode, dokumentasi yang jelas, dan solusi yang user-centric."
+  },
+  "experience_page": {
+    "title": "Pengalaman & Pembelajaran",
+    "telkom_access": {
+      "company": "PT Telkom Akses",
+      "role": "Procurement & Management Internship",
+      "period": "Internship"
+    },
+    "teaching_assistant_section": "Asisten Praktikum - Telkom University Jakarta",
+    "cert_view": "Lihat Sertifikat",
+    "haki_issuer": "Kementerian Hukum dan HAM Republik Indonesia",
+    "cert_project_label": "Proyek:",
+    "haki_desc": "Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata. Platform ini dirancang untuk mempermudah layanan transportasi publik Jakarta dengan antarmuka yang ramah pengguna dan arsitektur yang dapat diskalakan.",
+    "teaching_assistant": {
+      "role_label": "Peran",
+      "context_label": "Peran"
+    }
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "intro": "Tertarik untuk berkolaborasi atau punya pertanyaan? Hubungi saya melalui salah satu channel di bawah. Saya akan merespons secepatnya! 🚀",
+    "cards": {
+      "email": "Email",
+      "email_action": "Kirim Email →",
+      "location": "Location",
+      "location_action": "Berasal dari Jawa Barat",
+      "linkedin": "LinkedIn",
+      "linkedin_action": "Kunjungi Profil →",
+      "github": "GitHub",
+      "github_action": "Lihat Repos →",
+      "instagram": "Instagram",
+      "instagram_action": "Ikuti Saya →",
+      "whatsapp": "WhatsApp",
+      "whatsapp_action": "Kirim Pesan →"
+    },
+    "cta": {
+      "heading": "Siap Bekerja Sama?",
+      "text": "Mari diskusikan proyek berikutnya atau peluang kolaborasi. Saya terbuka untuk pertanyaan dan penawaran!",
+      "button": "Mulai Percakapan"
+    }
+  }
+  ,
+  "experience_page": {
+    "title": "Pengalaman & Pembelajaran",
+    "telkom_access": {
+      "company": "PT Telkom Akses",
+      "role": "Procurement & Management Internship",
+      "period": "Magang",
+      "bullet1": "Merancang dan mengembangkan website e-procurement internal perusahaan untuk merampingkan proses pengadaan dan manajemen kemitraan.",
+      "bullet2": "Berkolaborasi dengan pembimbing lapangan dan tim internal untuk memastikan sistem berjalan sesuai alur kerja divisi."
+    },
+    "haki_issuer": "Kementerian Hukum dan HAM Republik Indonesia",
+    "cert_project_label": "Proyek:",
+    "haki_desc": "Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata.",
+    "cert_view": "Lihat Sertifikat"
+  }
+}

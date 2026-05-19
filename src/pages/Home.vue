@@ -7,14 +7,14 @@
     </div>
 
     <div class="hero-content">
-      <p class="eyebrow">S1 Sistem Informasi - Kampus Jakarta • Telkom University</p>
-      <h1>Muhammad Dafa Hambali</h1>
-      <p class="description">Project Manager | System Analyst | Teaching Assistant</p>
+      <p class="eyebrow">{{ $t('home.eyebrow') }}</p>
+      <h1>{{ $t('home.name') }}</h1>
+      <p class="description">{{ $t('home.description') }}</p>
 
       <div class="stats">
-        <div><span>16+</span>Months Experience</div>
-        <div><span>4</span>Major Projects</div>
-        <div><span>3.64</span>GPA</div>
+        <div><span>16+</span>{{ $t('home.stats.experience') }}</div>
+        <div><span>4</span>{{ $t('home.stats.projects') }}</div>
+        <div><span>3.64</span>{{ $t('home.stats.gpa') }}</div>
       </div>
 
       <div class="tech-stack">
@@ -25,8 +25,8 @@
       </div>
 
       <div class="actions">
-        <router-link to="/projects" class="btn primary">View Portfolio</router-link>
-        <a href="#" class="btn secondary">Download CV</a>
+        <router-link to="/projects" class="btn primary">{{ $t('home.actions.viewPortfolio') }}</router-link>
+        <a href="#" class="btn secondary">{{ $t('home.actions.downloadCV') }}</a>
       </div>
     </div>
   </section>

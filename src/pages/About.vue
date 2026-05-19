@@ -1,22 +1,14 @@
 <template>
   <section class="about-section">
-    <h1>Tentang Saya</h1>
+    <h1>{{ $t('about.title') }}</h1>
 
     <div class="about-grid">
       <div class="about-left">
         <h2>Perjalanan Profesional</h2>
-        <p>
-          Saya adalah lulusan S1 Sistem Informasi dari Telkom University Jakarta dengan GPA 3.64/4.00. Perjalanan saya dimulai dengan passion mendalam terhadap <strong>analisis sistem dan desain solusi digital</strong> yang efektif.
-        </p>
-        <p>
-          Selama kuliah, saya tidak hanya belajar teori, tetapi langsung menerapkan dalam praktik. Sebagai Asisten Praktikum di 4 mata kuliah berbeda, saya menguasai berbagai domain: dari pemodelan sistem (UML, BPMN, AHP) hingga implementasi backend (Laravel, MySQL). Pengalaman ini membuat saya memahami bahwa <strong>analisis yang baik adalah fondasi eksekusi yang sempurna</strong>.
-        </p>
-        <p>
-          Contoh nyata: selama internship di PT Telkom Akses, saya merancang dan mengembangkan sistem <strong>e-procurement internal</strong> yang merampingkan proses pengadaan barang. Proyek ini menunjukkan kemampuan saya mengubah kebutuhan bisnis menjadi solusi teknis yang operasional.
-        </p>
-        <p>
-          Kini, saya siap berkontribusi sebagai System Analyst atau Backend Developer di industri teknologi—dengan fokus pada kualitas kode, dokumentasi yang jelas, dan solusi yang user-centric.
-        </p>
+        <p v-html="$t('about.p1')"></p>
+        <p v-html="$t('about.p2')"></p>
+        <p v-html="$t('about.p3')"></p>
+        <p>{{ $t('about.conclusion') || '' }}</p>
       </div>
 
       <div class="about-right">

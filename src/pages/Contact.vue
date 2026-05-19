@@ -1,64 +1,62 @@
 <template>
   <section class="contact-section">
-    <h1>Get In Touch</h1>
-    <p class="intro">
-      Tertarik untuk berkolaborasi atau punya pertanyaan? Hubungi saya melalui salah satu channel di bawah. Saya akan merespons secepatnya! 🚀
-    </p>
+    <h1>{{ $t('contact.title') }}</h1>
+    <p class="intro">{{ $t('contact.intro') }}</p>
 
     <div class="contact-grid">
       <!-- Email Card -->
       <a href="mailto:dfhmbli09@gmail.com" class="contact-card">
         <div class="card-icon">✉️</div>
-        <h3>Email</h3>
+        <h3>{{ $t('contact.cards.email') || 'Email' }}</h3>
         <p class="card-value">dfhmbli09@gmail.com</p>
-        <span class="card-action">Kirim Email →</span>
+        <span class="card-action">{{ $t('contact.cards.email_action') || 'Send Email →' }}</span>
       </a>
 
       <!-- Location Card -->
       <div class="contact-card">
         <div class="card-icon">📍</div>
-        <h3>Location</h3>
+        <h3>{{ $t('contact.cards.location') || 'Location' }}</h3>
         <p class="card-value">Bekasi, Indonesia</p>
-        <span class="card-action">Based in West Java</span>
+        <span class="card-action">{{ $t('contact.cards.location_action') || 'Based in West Java' }}</span>
       </div>
 
       <!-- LinkedIn Card -->
       <a href="www.linkedin.com/in/muhammad-dafa-hambali" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="card-icon">💼</div>
-        <h3>LinkedIn</h3>
+        <h3>{{ $t('contact.cards.linkedin') || 'LinkedIn' }}</h3>
         <p class="card-value">Connect with me</p>
-        <span class="card-action">Visit Profile →</span>
+        <span class="card-action">{{ $t('contact.cards.linkedin_action') || 'Visit Profile →' }}</span>
       </a>
 
       <!-- GitHub Card -->
       <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="card-icon">💻</div>
-        <h3>GitHub</h3>
+        <h3>{{ $t('contact.cards.github') || 'GitHub' }}</h3>
         <p class="card-value">Check my projects</p>
-        <span class="card-action">View Repos →</span>
+        <span class="card-action">{{ $t('contact.cards.github_action') || 'View Repos →' }}</span>
       </a>
 
       <!-- Instagram Card -->
       <a href="https://www.instagram.com/dafahambali?igsh=MWtmY3Roa3B5cWM2YQ==" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="card-icon">📸</div>
-        <h3>Instagram</h3>
+        <h3>{{ $t('contact.cards.instagram') || 'Instagram' }}</h3>
         <p class="card-value">@dafahambali</p>
-        <span class="card-action">Follow Me →</span>
+        <span class="card-action">{{ $t('contact.cards.instagram_action') || 'Follow Me →' }}</span>
       </a>
 
       <!-- WhatsApp Card -->
       <a href="https://wa.me/6285254357690" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="card-icon">💬</div>
-        <h3>WhatsApp</h3>
+        <h3>{{ $t('contact.cards.whatsapp') || 'WhatsApp' }}</h3>
         <p class="card-value">Quick Message</p>
-        <span class="card-action">Send Message →</span>
+        <span class="card-action">{{ $t('contact.cards.whatsapp_action') || 'Send Message →' }}</span>
       </a>
     </div>
 
     <div class="cta-section">
-      <h2>Ready to Work Together?</h2>
-      <p>Mari diskusikan tentang project berikutnya atau peluang kolaborasi. Saya terbuka untuk pertanyaan atau penawaran menarik!</p>
-      <a href="mailto:dfhmbli09@gmail.com" class="cta-button">Start Conversation</a>
+      <h2>{{ $t('contact.cta.heading') }}</h2>
+      <p>{{ $t('contact.cta.text') }}</p>
+      <a href="mailto:dfhmbli09@gmail.com" class="cta-button">{{ $t('contact.cta.button') }}</a>
     </div>
   </section>
 </template>

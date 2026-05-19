@@ -1,14 +1,12 @@
 <template>
   <section class="projects-section">
-    <h1>Projects</h1>
-    <p class="intro">
-      Beberapa proyek utama yang menunjukkan kombinasi analisis sistem, eksekusi teknis, dan hasil yang bisa langsung dipakai.
-    </p>
+    <h1>{{ $t('projects.title') }}</h1>
+    <p class="intro">{{ $t('projects.intro') }}</p>
 
     <div class="projects-grid">
       <article
         v-for="project in projects"
-        :key="project.title"
+        :key="project.id"
         :id="project.id"
         class="project-card"
       >
@@ -19,23 +17,27 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img :src="project.image" :alt="project.title" class="project-image" />
+          <img :src="project.image" :alt="$t(project.titleKey)" class="project-image" />
         </a>
-        <h2>{{ project.icon }} {{ project.title }}</h2>
-        <span class="badge">{{ project.badge }}</span>
-        <p class="subtitle">{{ project.subtitle }}</p>
+
+        <h2>{{ project.icon }} {{ $t(project.titleKey) }}</h2>
+        <span class="badge">{{ $t(project.badgeKey) }}</span>
+        <p class="subtitle">{{ $t(project.subtitleKey) }}</p>
+
         <ul>
-          <li v-for="item in project.points" :key="item">
-            <strong>{{ item.label }}</strong>: {{ item.value }}
+          <li v-for="item in project.points" :key="item.labelKey + (item.valueKey || item.value)">
+            <strong>{{ $t(`projects.labels.${item.labelKey}`) }}</strong>: {{ item.valueKey ? $t(item.valueKey) : item.value }}
           </li>
         </ul>
+
         <div class="cert-links" v-if="project.certLinks">
-          <a v-for="cert in project.certLinks" :key="cert.label" class="card-link" :href="cert.url" target="_blank" rel="noopener noreferrer">
-            {{ cert.label }}
+          <a v-for="cert in project.certLinks" :key="cert.labelKey || cert.label" class="card-link" :href="cert.url" target="_blank" rel="noopener noreferrer">
+            {{ cert.labelKey ? $t(cert.labelKey) : cert.label }}
           </a>
         </div>
+
         <a v-else class="card-link" :href="`#${project.id}`">
-          Lihat Detail
+          {{ $t('projects.viewDetails') }}
         </a>
       </article>
     </div>
@@ -47,66 +49,69 @@ const projects = [
   {
     id: 'project-amira',
     icon: '📦',
-    title: 'Sistem POS Kasir Toko Amira',
-    badge: 'React JS • Jira • Project Management',
-    subtitle: 'Project Tugas Besar',
+    titleKey: 'projects.items.project-amira.title',
+    badgeKey: 'projects.items.project-amira.badge',
+    subtitleKey: 'projects.items.project-amira.subtitle',
     image: '/Projects/Jira%20POS%20Kasir%20Toko%20Amira.png',
     points: [
-      { label: 'Role', value: 'Project Manager & System Analyst' },
-      { label: 'Tools', value: 'Jira (sprint, backlog, issue tracking)' },
-      { label: 'Status', value: 'Released & Operational' },
+      { labelKey: 'role', valueKey: 'projects.items.project-amira.points.role' },
+      { labelKey: 'tools', valueKey: 'projects.items.project-amira.points.tools' },
+      { labelKey: 'status', valueKey: 'projects.items.project-amira.points.status' },
     ],
   },
   {
     id: 'project-jmt',
     icon: '🚇',
-    title: 'Website Jakarta Metro Transit (JMT)',
-    badge: 'Full-Stack • HAKI Certified',
-    subtitle: 'Project Tugas Besar | Intellectual Property Protected',
+    titleKey: 'projects.items.project-jmt.title',
+    badgeKey: 'projects.items.project-jmt.badge',
+    subtitleKey: 'projects.items.project-jmt.subtitle',
+    image: '/Projects/Jmt.png',
     points: [
-      { label: 'Achievement', value: 'HAKI Certificate (Surat Pencatatan Ciptaan)' },
-      { label: 'Features', value: 'Integrated transit map, ticket simulation' },
-      { label: 'Scope', value: 'Public transit information platform' },
+      { labelKey: 'achievement', valueKey: 'projects.items.project-jmt.points.achievement' },
+      { labelKey: 'features', valueKey: 'projects.items.project-jmt.points.features' },
+      { labelKey: 'scope', valueKey: 'projects.items.project-jmt.points.scope' },
     ],
     certLinks: [
-      { label: 'Sertifikat HAKI', url: '/Sertifikat/Haki_compressed.pdf' },
+      { labelKey: 'projects.items.project-jmt.certLinks.haki', url: '/Sertifikat/Haki_compressed.pdf' },
     ],
   },
   {
     id: 'project-ekatering',
     icon: '🍽️',
-    title: 'E-Katering System Design',
-    badge: 'Figma • UI/UX • BNSP Certification',
-    subtitle: 'Sertifikasi BNSP System Analyst',
+    titleKey: 'projects.items.project-ekatering.title',
+    badgeKey: 'projects.items.project-ekatering.badge',
+    subtitleKey: 'projects.items.project-ekatering.subtitle',
+    image: '/Projects/UI_Homepage_E-Catering_-Desktop.png',
     points: [
-      { label: 'Method', value: 'System analysis & requirements' },
-      { label: 'Output', value: 'Complete UI/UX design in Figma' },
-      { label: 'Certification', value: 'BNSP System Analyst Certified' },
+      { labelKey: 'method', valueKey: 'projects.items.project-ekatering.points.method' },
+      { labelKey: 'output', valueKey: 'projects.items.project-ekatering.points.output' },
+      { labelKey: 'certification', valueKey: 'projects.items.project-ekatering.points.certification' },
     ],
     certLinks: [
-      { label: 'Sertifikat BNSP', url: '/Sertifikat/BNSP.jpg' },
+      { labelKey: 'projects.items.project-ekatering.certLinks.bnsp', url: '/Sertifikat/BNSP.jpg' },
     ],
   },
   {
     id: 'project-pilihanku',
     icon: '🎓',
-    title: 'Website Pilihanku',
-    badge: 'Decision Support System • AHP Algorithm',
-    subtitle: 'Tugas Akhir',
+    titleKey: 'projects.items.project-pilihanku.title',
+    badgeKey: 'projects.items.project-pilihanku.badge',
+    subtitleKey: 'projects.items.project-pilihanku.subtitle',
     points: [
-      { label: 'Method', value: 'MCDM (Multi-Criteria Decision Making) dengan AHP' },
-      { label: 'Function', value: 'Membantu calon mahasiswa memilih jurusan' },
-      { label: 'Result', value: 'Real-time calculation & recommendations' },
+      { labelKey: 'method', valueKey: 'projects.items.project-pilihanku.points.method' },
+      { labelKey: 'function', valueKey: 'projects.items.project-pilihanku.points.function' },
+      { labelKey: 'result', valueKey: 'projects.items.project-pilihanku.points.result' },
     ],
   },
-   {
+  {
     id: 'design-humas',
     icon: '🎓',
-    title: 'Strategi Visual & Social Media Design HIMSI',
-    badge: 'Figma • Social Media Management • Canva • Instagram • Content Strategy',
+    titleKey: 'projects.items.design-humas.title',
+    badgeKey: 'projects.items.design-humas.badge',
+    subtitleKey: 'projects.items.design-humas.subtitle',
     points: [
-      { label: 'Objective', value: 'Merancang identitas visual dan materi publikasi untuk program kerja himpunan guna meningkatkan engagement dan partisipasi mahasiswa.' },
-      { label: 'Output', value: 'Desain feed edukatif, poster acara, dan guideline visual.' },
+      { labelKey: 'objective', valueKey: 'projects.items.design-humas.points.objective' },
+      { labelKey: 'output', valueKey: 'projects.items.design-humas.points.output' },
     ],
   },
 ]
@@ -119,7 +124,7 @@ const projects = [
   padding: 2.5rem 2rem 3rem;
 }
 
-h1 {
+.projects-section h1 {
   font-size: 2.5rem;
   margin: 0 0 0.75rem;
   color: #e8eef7;
@@ -235,7 +240,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  h1 {
+  .projects-section h1 {
     font-size: 2rem;
   }
 }
