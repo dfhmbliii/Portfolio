@@ -12,7 +12,7 @@
       <p class="description">{{ $t('home.description') }}</p>
 
       <div class="stats">
-        <div><span>16+</span>{{ $t('home.stats.experience') }}</div>
+        <div><span> < 1 </span>{{ $t('home.stats.experience') }}</div>
         <div><span>4</span>{{ $t('home.stats.projects') }}</div>
         <div><span>3.64</span>{{ $t('home.stats.gpa') }}</div>
       </div>
