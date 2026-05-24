@@ -10,6 +10,57 @@
     "title": "Proyek",
     "intro": "Beberapa proyek utama yang menunjukkan kombinasi analisis sistem, eksekusi teknis, dan hasil yang bisa langsung dipakai.",
     "viewDetails": "Lihat Detail",
+    "deliverables": {
+      "title": "Deliverables"
+    },
+    "testing": {
+      "title": "Dokumentasi Pengujian",
+      "intro": "Ringkasan test case untuk Website Pilihanku menggunakan teknik Equivalence Partitioning.",
+      "scenario": "Skenario",
+      "steps": "Langkah Uji",
+      "expectedResult": "Hasil yang Diharapkan",
+      "types": {
+        "positive": "Positive Testing",
+        "negative": "Negative Testing"
+      },
+      "status": {
+        "pass": "Pass"
+      },
+      "cases": {
+        "registerValid": {
+          "title": "Registrasi dengan data valid",
+          "scenario": "Memastikan siswa dapat mendaftar menggunakan data yang lengkap dan valid.",
+          "steps": {
+            "step1": "Buka halaman register",
+            "step2": "Isi Nama, NISN, Email, Jurusan, Sekolah, Tahun Lulus",
+            "step3": "Isi password dan confirm password",
+            "step4": "Klik tombol daftar",
+            "step5": "Sistem menampilkan status berhasil"
+          },
+          "expected": "Registrasi berhasil dan pengguna diarahkan ke halaman login"
+        },
+        "emailTaken": {
+          "title": "Registrasi dengan email yang sudah terdaftar",
+          "scenario": "Memastikan sistem menolak email duplikat.",
+          "steps": {
+            "step1": "Buka halaman register",
+            "step2": "Isi data valid tetapi gunakan email yang sudah ada",
+            "step3": "Klik tombol daftar"
+          },
+          "expected": "Registrasi gagal dan muncul pesan error bahwa email sudah digunakan"
+        },
+        "nisnTaken": {
+          "title": "Registrasi dengan NISN yang sudah terdaftar",
+          "scenario": "Memastikan sistem menolak NISN duplikat.",
+          "steps": {
+            "step1": "Buka halaman register",
+            "step2": "Isi data valid tetapi gunakan NISN yang sudah ada",
+            "step3": "Klik tombol daftar"
+          },
+          "expected": "Registrasi gagal dan muncul pesan error bahwa NISN sudah digunakan"
+        }
+      }
+    },
     "labels": {
       "role": "Peran",
       "tools": "Alat",
@@ -22,7 +73,8 @@
       "certification": "Sertifikasi",
       "function": "Fungsi",
       "result": "Hasil",
-      "objective": "Tujuan"
+      "objective": "Tujuan",
+      "platform": "Platform"
     }
   ,
     "items": {
@@ -55,8 +107,15 @@
         "subtitle": "Sertifikasi BNSP System Analyst",
         "points": {
           "method": "Analisis sistem & kebutuhan",
+          "tools": "Figma, UML, BPMN, dan user flow",
           "output": "Desain UI/UX lengkap di Figma",
           "certification": "BNSP System Analyst Certified"
+        },
+        "deliverables": {
+          "requirements": "Requirement analysis dan scope sistem",
+          "userFlow": "User flow proses pemesanan dan alur layanan",
+          "wireframe": "Wireframe / high-level mockup",
+          "uml": "UML dan BPMN untuk pemodelan proses"
         },
         "certLinks": {
           "bnsp": "Sertifikat BNSP"
@@ -73,12 +132,13 @@
         }
       },
       "design-humas": {
-        "title": "Strategi Visual & Social Media Design HIMSI",
-        "badge": "Figma • Social Media Management • Canva • Content Strategy",
-        "subtitle": "Kampanye & identitas visual",
+        "title": "Kampanye Visual Instagram HIMSI",
+        "badge": "Figma • Canva • Social Media Campaign • Content Strategy",
+        "subtitle": "Konten publikasi Instagram & identitas visual",
         "points": {
-          "objective": "Merancang identitas visual dan materi publikasi untuk program kerja himpunan guna meningkatkan engagement dan partisipasi mahasiswa.",
-          "output": "Desain feed edukatif, poster acara, dan panduan visual."
+          "platform": "Instagram",
+          "objective": "Merancang identitas visual dan materi publikasi untuk program kerja himpunan yang dipakai di akun resmi Instagram.",
+          "output": "Desain feed edukatif, poster acara, dan materi publikasi visual Instagram."
         }
       }
     }

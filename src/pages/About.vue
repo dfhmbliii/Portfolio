@@ -15,12 +15,16 @@
         <h2>Keahlian & Tools</h2>
 
         <div class="skills-category">
-          <h3>📊 System Analysis</h3>
+          <h3>📊 System Analysis & QA</h3>
           <div class="skill-badges">
             <span class="badge">UML Diagrams</span>
             <span class="badge">BPMN Modeling</span>
             <span class="badge">AHP Decision Making</span>
             <span class="badge">Requirements Analysis</span>
+            <span class="badge">Manual Testing</span>
+            <span class="badge">Web Automation Testing (Selenium)</span>
+            <span class="badge">Bug Reporting</span>
+            <span class="badge">Test Scenario Development</span>          
           </div>
         </div>
 
@@ -31,6 +35,7 @@
             <span class="badge">Vue.js 3</span>
             <span class="badge">MySQL</span>
             <span class="badge">RESTful APIs</span>
+            <span class="badge">Microsoft Excel (Test Reporting)</span>    
           </div>
         </div>
 

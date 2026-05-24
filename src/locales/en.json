@@ -10,6 +10,57 @@
     "title": "Projects",
     "intro": "Some key projects demonstrating system analysis, technical execution, and ready-to-use results.",
     "viewDetails": "See Details",
+    "deliverables": {
+      "title": "Deliverables"
+    },
+    "testing": {
+      "title": "Testing Documentation",
+      "intro": "A test case summary for the Pilihanku Website using the Equivalence Partitioning technique.",
+      "scenario": "Scenario",
+      "steps": "Test Steps",
+      "expectedResult": "Expected Result",
+      "types": {
+        "positive": "Positive Testing",
+        "negative": "Negative Testing"
+      },
+      "status": {
+        "pass": "Pass"
+      },
+      "cases": {
+        "registerValid": {
+          "title": "Registration with valid data",
+          "scenario": "Verify that a student can register using complete and valid data.",
+          "steps": {
+            "step1": "Open the register page",
+            "step2": "Fill in Name, NISN, Email, Major, School, and Graduation Year",
+            "step3": "Enter password and confirm password",
+            "step4": "Click the register button",
+            "step5": "The system shows a successful status"
+          },
+          "expected": "Registration succeeds and the user is redirected to the login page"
+        },
+        "emailTaken": {
+          "title": "Registration with an existing email",
+          "scenario": "Verify that the system rejects duplicate emails.",
+          "steps": {
+            "step1": "Open the register page",
+            "step2": "Fill valid data but use an email that already exists",
+            "step3": "Click the register button"
+          },
+          "expected": "Registration fails and an error message appears stating the email is already used"
+        },
+        "nisnTaken": {
+          "title": "Registration with an existing NISN",
+          "scenario": "Verify that the system rejects duplicate NISN values.",
+          "steps": {
+            "step1": "Open the register page",
+            "step2": "Fill valid data but use an NISN that already exists",
+            "step3": "Click the register button"
+          },
+          "expected": "Registration fails and an error message appears stating the NISN is already used"
+        }
+      }
+    },
     "labels": {
       "role": "Role",
       "tools": "Tools",
@@ -22,7 +73,8 @@
       "certification": "Certification",
       "function": "Function",
       "result": "Result",
-      "objective": "Objective"
+      "objective": "Objective",
+      "platform": "Platform"
     }
   ,
     "items": {
@@ -55,8 +107,15 @@
         "subtitle": "BNSP System Analyst Certification Project",
         "points": {
           "method": "System analysis & requirements",
+          "tools": "Figma, UML, BPMN, and user flows",
           "output": "Complete UI/UX design in Figma",
           "certification": "BNSP System Analyst Certified"
+        },
+        "deliverables": {
+          "requirements": "Requirements analysis and system scope",
+          "userFlow": "Ordering and service user flows",
+          "wireframe": "Wireframe / high-level mockup",
+          "uml": "UML and BPMN process modeling"
         },
         "certLinks": {
           "bnsp": "BNSP Certificate"
@@ -73,12 +132,13 @@
         }
       },
       "design-humas": {
-        "title": "Visual Strategy & Social Media Design for HIMSI",
-        "badge": "Figma • Social Media Management • Canva • Content Strategy",
-        "subtitle": "Campaign & visual identity",
+        "title": "HIMSI Instagram Visual Campaign",
+        "badge": "Figma • Canva • Social Media Campaign • Content Strategy",
+        "subtitle": "Instagram publication content & visual identity",
         "points": {
-          "objective": "Design identity and publication materials to increase engagement and student participation.",
-          "output": "Educational feed designs, event posters, and visual guidelines."
+          "platform": "Instagram",
+          "objective": "Design visual identity and publication materials used on the official Instagram account.",
+          "output": "Educational feed designs, event posters, and Instagram publication assets."
         }
       }
     }

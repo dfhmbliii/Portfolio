@@ -23,12 +23,55 @@
         <h2>{{ project.icon }} {{ $t(project.titleKey) }}</h2>
         <span class="badge">{{ $t(project.badgeKey) }}</span>
         <p class="subtitle">{{ $t(project.subtitleKey) }}</p>
-
         <ul>
           <li v-for="item in project.points" :key="item.labelKey + (item.valueKey || item.value)">
             <strong>{{ $t(`projects.labels.${item.labelKey}`) }}</strong>: {{ item.valueKey ? $t(item.valueKey) : item.value }}
           </li>
         </ul>
+
+        <div v-if="project.deliverables" class="deliverables-section">
+          <h3>{{ $t('projects.deliverables.title') }}</h3>
+          <ul class="deliverables-list">
+            <li v-for="item in project.deliverables" :key="item.key">
+              {{ $t(item.key) }}
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="project.testCases" class="testing-section">
+          <h3>{{ $t('projects.testing.title') }}</h3>
+          <p class="testing-intro">{{ $t('projects.testing.intro') }}</p>
+
+          <div v-for="testCase in project.testCases" :key="testCase.id" class="testing-card">
+            <div class="testing-header">
+              <div>
+                <span class="testing-id">{{ testCase.id }}</span>
+                <h4>{{ $t(testCase.titleKey) }}</h4>
+              </div>
+              <div class="testing-badges">
+                <span class="testing-badge" :class="testCase.typeClass">{{ $t(testCase.typeKey) }}</span>
+                <span class="testing-status" :class="testCase.statusClass">{{ $t(testCase.statusKey) }}</span>
+              </div>
+            </div>
+
+            <p class="testing-scenario">
+              <strong>{{ $t('projects.testing.scenario') }}</strong>
+              {{ $t(testCase.scenarioKey) }}
+            </p>
+
+            <div class="testing-steps">
+              <strong>{{ $t('projects.testing.steps') }}</strong>
+              <ol>
+                <li v-for="stepKey in testCase.stepKeys" :key="stepKey">{{ $t(stepKey) }}</li>
+              </ol>
+            </div>
+
+            <p class="testing-expected">
+              <strong>{{ $t('projects.testing.expectedResult') }}</strong>
+              {{ $t(testCase.expectedKey) }}
+            </p>
+          </div>
+        </div>
 
         <div class="cert-links" v-if="project.certLinks">
           <a v-for="cert in project.certLinks" :key="cert.labelKey || cert.label" class="card-link" :href="cert.url" target="_blank" rel="noopener noreferrer">
@@ -84,8 +127,15 @@ const projects = [
     image: '/Projects/UI_Homepage_E-Catering_-Desktop.png',
     points: [
       { labelKey: 'method', valueKey: 'projects.items.project-ekatering.points.method' },
+      { labelKey: 'tools', valueKey: 'projects.items.project-ekatering.points.tools' },
       { labelKey: 'output', valueKey: 'projects.items.project-ekatering.points.output' },
       { labelKey: 'certification', valueKey: 'projects.items.project-ekatering.points.certification' },
+    ],
+    deliverables: [
+      { key: 'projects.items.project-ekatering.deliverables.requirements' },
+      { key: 'projects.items.project-ekatering.deliverables.userFlow' },
+      { key: 'projects.items.project-ekatering.deliverables.wireframe' },
+      { key: 'projects.items.project-ekatering.deliverables.uml' },
     ],
     certLinks: [
       { labelKey: 'projects.items.project-ekatering.certLinks.bnsp', url: '/Sertifikat/BNSP.jpg' },
@@ -102,6 +152,55 @@ const projects = [
       { labelKey: 'function', valueKey: 'projects.items.project-pilihanku.points.function' },
       { labelKey: 'result', valueKey: 'projects.items.project-pilihanku.points.result' },
     ],
+    testCases: [
+      {
+        id: 'TC.LOG.001',
+        titleKey: 'projects.testing.cases.registerValid.title',
+        typeKey: 'projects.testing.types.positive',
+        typeClass: 'positive',
+        statusKey: 'projects.testing.status.pass',
+        statusClass: 'pass',
+        scenarioKey: 'projects.testing.cases.registerValid.scenario',
+        stepKeys: [
+          'projects.testing.cases.registerValid.steps.step1',
+          'projects.testing.cases.registerValid.steps.step2',
+          'projects.testing.cases.registerValid.steps.step3',
+          'projects.testing.cases.registerValid.steps.step4',
+          'projects.testing.cases.registerValid.steps.step5',
+        ],
+        expectedKey: 'projects.testing.cases.registerValid.expected',
+      },
+      {
+        id: 'TC.LOG.002',
+        titleKey: 'projects.testing.cases.emailTaken.title',
+        typeKey: 'projects.testing.types.negative',
+        typeClass: 'negative',
+        statusKey: 'projects.testing.status.pass',
+        statusClass: 'pass',
+        scenarioKey: 'projects.testing.cases.emailTaken.scenario',
+        stepKeys: [
+          'projects.testing.cases.emailTaken.steps.step1',
+          'projects.testing.cases.emailTaken.steps.step2',
+          'projects.testing.cases.emailTaken.steps.step3',
+        ],
+        expectedKey: 'projects.testing.cases.emailTaken.expected',
+      },
+      {
+        id: 'TC.LOG.003',
+        titleKey: 'projects.testing.cases.nisnTaken.title',
+        typeKey: 'projects.testing.types.negative',
+        typeClass: 'negative',
+        statusKey: 'projects.testing.status.pass',
+        statusClass: 'pass',
+        scenarioKey: 'projects.testing.cases.nisnTaken.scenario',
+        stepKeys: [
+          'projects.testing.cases.nisnTaken.steps.step1',
+          'projects.testing.cases.nisnTaken.steps.step2',
+          'projects.testing.cases.nisnTaken.steps.step3',
+        ],
+        expectedKey: 'projects.testing.cases.nisnTaken.expected',
+      },
+    ],
   },
   {
     id: 'design-humas',
@@ -110,6 +209,7 @@ const projects = [
     badgeKey: 'projects.items.design-humas.badge',
     subtitleKey: 'projects.items.design-humas.subtitle',
     points: [
+      { labelKey: 'platform', valueKey: 'projects.items.design-humas.points.platform' },
       { labelKey: 'objective', valueKey: 'projects.items.design-humas.points.objective' },
       { labelKey: 'output', valueKey: 'projects.items.design-humas.points.output' },
     ],
@@ -195,6 +295,151 @@ const projects = [
   margin: 0;
 }
 
+.deliverables-section {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.deliverables-section h3 {
+  margin: 0 0 0.45rem;
+  color: #f0f5ff;
+  font-size: 1rem;
+}
+
+.deliverables-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deliverables-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin: 0.45rem 0;
+  line-height: 1.55;
+  color: #d7e2f2;
+}
+
+.deliverables-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #73b7ff;
+}
+
+.testing-section {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.testing-section h3 {
+  margin: 0 0 0.35rem;
+  color: #f0f5ff;
+  font-size: 1rem;
+}
+
+.testing-intro {
+  margin: 0 0 0.9rem;
+  color: #adc0da;
+  line-height: 1.6;
+}
+
+.testing-card {
+  padding: 0.95rem 1rem;
+  margin-top: 0.85rem;
+  border-radius: 12px;
+  background: rgba(10, 18, 32, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.testing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.testing-id {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  color: #73b7ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.testing-header h4 {
+  margin: 0;
+  color: #f0f5ff;
+  font-size: 0.98rem;
+}
+
+.testing-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+.testing-badge,
+.testing-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.testing-badge.positive {
+  background: rgba(66, 179, 126, 0.14);
+  border: 1px solid rgba(66, 179, 126, 0.3);
+  color: #8fe0b5;
+}
+
+.testing-badge.negative {
+  background: rgba(255, 167, 38, 0.14);
+  border: 1px solid rgba(255, 167, 38, 0.28);
+  color: #ffc97a;
+}
+
+.testing-status.pass {
+  background: rgba(88, 149, 255, 0.14);
+  border: 1px solid rgba(88, 149, 255, 0.28);
+  color: #9ed0ff;
+}
+
+.testing-scenario,
+.testing-expected {
+  margin: 0.65rem 0 0;
+  color: #d7e2f2;
+  line-height: 1.6;
+}
+
+.testing-steps {
+  margin-top: 0.75rem;
+  color: #d7e2f2;
+}
+
+.testing-steps strong,
+.testing-scenario strong,
+.testing-expected strong {
+  color: #f0f5ff;
+}
+
+.testing-steps ol {
+  margin: 0.45rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.testing-steps li {
+  margin: 0.3rem 0;
+  line-height: 1.55;
+}
+
 .project-card li {
   position: relative;
   padding-left: 1.2rem;
@@ -234,6 +479,14 @@ const projects = [
 @media (max-width: 760px) {
   .projects-section {
     padding: 2rem 1rem 2.5rem;
+  }
+
+  .testing-header {
+    flex-direction: column;
+  }
+
+  .testing-badges {
+    justify-content: flex-start;
   }
 
   .projects-grid {
