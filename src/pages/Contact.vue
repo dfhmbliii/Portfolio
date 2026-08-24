@@ -16,7 +16,7 @@
       <div class="contact-card">
         <div class="card-icon">📍</div>
         <h3>{{ $t('contact.cards.location') || 'Location' }}</h3>
-        <p class="card-value">Bekasi, Indonesia</p>
+        <p class="card-value">Makassar, Sulawesi Selatan, Indonesia</p>
         <span class="card-action">{{ $t('contact.cards.location_action') || 'Based in West Java' }}</span>
       </div>
 
