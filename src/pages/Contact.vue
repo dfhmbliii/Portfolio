@@ -17,11 +17,11 @@
         <div class="card-icon">📍</div>
         <h3>{{ $t('contact.cards.location') || 'Location' }}</h3>
         <p class="card-value">Makassar, Sulawesi Selatan, Indonesia</p>
-        <span class="card-action">{{ $t('contact.cards.location_action') || 'Based in West Java' }}</span>
+        <span class="card-action">{{ $t('contact.cards.location_action') || 'Based in Makassar' }}</span>
       </div>
 
       <!-- LinkedIn Card -->
-      <a href="www.linkedin.com/in/muhammad-dafa-hambali" target="_blank" rel="noopener noreferrer" class="contact-card">
+      <a href="https://linkedin.com/in/dafa-hambali" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="card-icon">💼</div>
         <h3>{{ $t('contact.cards.linkedin') || 'LinkedIn' }}</h3>
         <p class="card-value">Connect with me</p>
