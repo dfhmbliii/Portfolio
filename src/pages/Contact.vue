@@ -21,7 +21,7 @@
       </div>
 
       <!-- LinkedIn Card -->
-      <a href="https://linkedin.com/in/dafa-hambali" target="_blank" rel="noopener noreferrer" class="contact-card">
+      <a href="https://www.linkedin.com/in/muhammad-dafa-hambali" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="card-icon">💼</div>
         <h3>{{ $t('contact.cards.linkedin') || 'LinkedIn' }}</h3>
         <p class="card-value">Connect with me</p>
