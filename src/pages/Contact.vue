@@ -75,8 +75,8 @@ const contacts = [
   {
     icon: '📍',
     title: 'Location',
-    value: 'Bekasi, Indonesia',
-    action: 'Based in West Java',
+    value: 'Makassar, Sulawesi Selatan',
+    action: 'Based in South Sulawesi',
     isLink: false
   },
   {
