@@ -79,6 +79,16 @@
           </a>
         </div>
 
+        <a
+          v-else-if="project.link"
+          class="card-link"
+          :href="project.link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ project.linkLabelKey ? $t(project.linkLabelKey) : $t('projects.viewDetails') }}
+        </a>
+
         <a v-else class="card-link" :href="`#${project.id}`">
           {{ $t('projects.viewDetails') }}
         </a>
@@ -204,10 +214,11 @@ const projects = [
   },
   {
     id: 'design-humas',
-    icon: '🎓',
+    icon: '🎨',
     titleKey: 'projects.items.design-humas.title',
     badgeKey: 'projects.items.design-humas.badge',
     subtitleKey: 'projects.items.design-humas.subtitle',
+    link: 'https://www.figma.com/design/6SItYUPaaCwwi6UbsncQp5/Konten-HIMSI-Tel-U-Jakarta?node-id=0-1&t=y45lNi2649wy0L8c-1',
     points: [
       { labelKey: 'platform', valueKey: 'projects.items.design-humas.points.platform' },
       { labelKey: 'objective', valueKey: 'projects.items.design-humas.points.objective' },
