@@ -260,6 +260,10 @@
   "contact": {
     "title": "Hubungi Saya",
     "intro": "Tertarik untuk berkolaborasi atau punya pertanyaan? Hubungi saya melalui salah satu channel di bawah. Saya akan merespons secepatnya! 🚀",
+    "groups": {
+      "contact": "Kontak",
+      "social": "Sosial Media"
+    },
     "copy": "Salin",
     "copied": "Tersalin!",
     "cards": {

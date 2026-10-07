@@ -1,7 +1,10 @@
 <template>
   <div class="page-shell">
     <header class="topbar" :class="{ scrolled: isScrolled }">
-      <a class="brand" href="#home">Dafa<span>.dev</span></a>
+      <a class="brand" href="#home">
+        <span class="brand-full">Muhammad Dafa Hambali</span>
+        <span class="brand-short">Dafa Hambali</span>
+      </a>
 
       <nav id="site-nav" class="nav" :class="{ open: menuOpen }" aria-label="Section navigation">
         <a
@@ -185,10 +188,20 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: var(--text-strong);
+}
+
+.brand-short {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .brand-full { display: none; }
+  .brand-short { display: inline; }
 }
 
 .topbar-tools {

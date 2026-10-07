@@ -260,6 +260,10 @@
   "contact": {
     "title": "Get In Touch",
     "intro": "Interested in collaborating or have questions? Reach out via one of the channels below. I'll reply as soon as possible! 🚀",
+    "groups": {
+      "contact": "Contact",
+      "social": "Social Media"
+    },
     "copy": "Copy",
     "copied": "Copied!",
     "cards": {

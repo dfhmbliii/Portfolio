@@ -6,6 +6,8 @@
       <p class="section-intro">{{ $t('contact.intro') }}</p>
     </header>
 
+    <h3 class="contact-group-title">{{ $t('contact.groups.contact') }}</h3>
+
     <div class="contact-grid">
       <div class="contact-card">
         <div class="card-icon" aria-hidden="true">✉️</div>
@@ -22,7 +24,7 @@
 
       <component
         :is="card.href ? 'a' : 'div'"
-        v-for="card in linkCards"
+        v-for="card in contactLinks"
         :key="card.key"
         class="contact-card"
         :href="card.href || undefined"
@@ -34,6 +36,25 @@
         <p class="card-value">{{ card.value }}</p>
         <span v-if="card.href" class="card-link">{{ $t(`contact.cards.${card.key}_action`) }}</span>
         <span v-else class="card-note">{{ $t(`contact.cards.${card.key}_action`) }}</span>
+      </component>
+    </div>
+
+    <h3 class="contact-group-title">{{ $t('contact.groups.social') }}</h3>
+
+    <div class="contact-grid">
+      <component
+        :is="'a'"
+        v-for="card in socialLinks"
+        :key="card.key"
+        class="contact-card"
+        :href="card.href"
+        :target="card.external ? '_blank' : undefined"
+        :rel="card.external ? 'noopener noreferrer' : undefined"
+      >
+        <div class="card-icon" aria-hidden="true">{{ card.icon }}</div>
+        <h3 class="card-title">{{ $t(`contact.cards.${card.key}`) }}</h3>
+        <p class="card-value">{{ card.value }}</p>
+        <span class="card-link">{{ $t(`contact.cards.${card.key}_action`) }}</span>
       </component>
     </div>
 
@@ -78,20 +99,30 @@ async function copyEmail () {
   timer = setTimeout(() => { copied.value = false }, 1800)
 }
 
-const linkCards = [
+const contactLinks = [
   { key: 'location', icon: '📍', value: 'Makassar, Sulawesi Selatan', href: null, external: false },
+  { key: 'whatsapp', icon: '💬', value: '+62 852-5435-7690', href: 'https://wa.me/6285254357690', external: true },
+]
+
+const socialLinks = [
   { key: 'linkedin', icon: '💼', value: 'muhammad-dafa-hambali', href: 'https://www.linkedin.com/in/muhammad-dafa-hambali', external: true },
   { key: 'github', icon: '💻', value: 'github.com', href: 'https://github.com', external: true },
   { key: 'instagram', icon: '📸', value: '@dafahambali', href: 'https://www.instagram.com/dafahambali', external: true },
-  { key: 'whatsapp', icon: '💬', value: '+62 852-5435-7690', href: 'https://wa.me/6285254357690', external: true },
 ]
 </script>
 
 <style scoped>
+.contact-group-title {
+  margin: 0.2rem 0 0.9rem;
+  font-size: 1rem;
+  color: var(--text-strong);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 12px;
+  margin-bottom: 1.6rem;
 }
 
 .contact-card {

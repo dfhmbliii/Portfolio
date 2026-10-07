@@ -135,22 +135,27 @@ img {
 
 .topbar {
   position: sticky;
-  top: 0;
+  top: 12px;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 4px;
-  background: var(--header-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.25s ease;
+  margin-top: 12px;
+  margin-bottom: 14px;
+  padding: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .topbar.scrolled {
-  border-bottom-color: var(--border);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
 }
 
 .brand {
@@ -160,12 +165,6 @@ img {
   white-space: nowrap;
 }
 
-.brand span {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 
 .nav {
   display: flex;
@@ -202,7 +201,7 @@ main {
 }
 
 .section {
-  scroll-margin-top: 84px;
+  scroll-margin-top: 100px;
   padding: 2.4rem 1.6rem;
   background: var(--surface);
   border: 1px solid var(--border);
