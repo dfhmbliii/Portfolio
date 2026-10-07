@@ -2,10 +2,124 @@
   "nav": {
     "home": "Beranda",
     "about": "Tentang",
-    "projects": "Proyek",
+    "skills": "Keahlian",
     "experience": "Pengalaman",
+    "projects": "Proyek",
     "contact": "Kontak"
   },
+
+  "home": {
+    "eyebrow": "Perangkat Lunak & Sistem",
+    "name": "Muhammad Dafa Hambali",
+    "description": "System Analyst dan Full-Stack Developer yang fokus pada aplikasi web, UX, dan decision support berbasis data.",
+    "status": "Terbuka untuk peluang baru",
+    "badge": {
+      "title": "System Analyst",
+      "sub": "Tersertifikasi BNSP"
+    },
+    "stats": {
+      "experience": "Tahun Pengalaman",
+      "projects": "Proyek",
+      "gpa": "IPK"
+    },
+    "actions": {
+      "viewPortfolio": "Lihat Portofolio",
+      "downloadCV": "Unduh CV"
+    }
+  },
+
+  "about": {
+    "title": "Tentang Saya",
+    "intro": "Sekilas tentang saya, cara saya bekerja, dan fokus saya.",
+    "p1": "Saya lulus S1 Sistem Informasi dari Telkom University Jakarta dengan IPK 3.64/4.00.",
+    "p2": "Selama kuliah saya menerapkan teori ke praktik. Sebagai Asisten Praktikum di 4 mata kuliah, saya memperoleh pengalaman dari pemodelan sistem (UML, BPMN, AHP) hingga implementasi backend (Laravel, MySQL).",
+    "p3": "Selama magang di PT Telkom Akses, saya merancang dan mengembangkan sistem e-procurement internal yang merampingkan proses pengadaan.",
+    "conclusion": "Kini, saya siap berkontribusi sebagai System Analyst atau Backend Developer di industri teknologi—dengan fokus pada kualitas kode, dokumentasi yang jelas, dan solusi yang user-centric.",
+    "facts": {
+      "title": "Ringkasan",
+      "education": "Pendidikan",
+      "educationValue": "S1 Sistem Informasi — Telkom University Jakarta",
+      "gpa": "IPK",
+      "gpaValue": "3.64 / 4.00",
+      "role": "Peran",
+      "roleValue": "System Analyst & Full-Stack Developer",
+      "location": "Lokasi",
+      "locationValue": "Makassar, Sulawesi Selatan, Indonesia",
+      "focus": "Fokus",
+      "focusValue": "Aplikasi web, UX & decision support"
+    }
+  },
+
+  "skills": {
+    "title": "Keahlian & Tools",
+    "intro": "Diambil langsung dari CV: pemrograman, tools, metode analisis, dan sertifikasi.",
+    "sub": {
+      "programming": "Programming & Framework",
+      "tools": "Tools & Software",
+      "methods": "Metodologi & Analisis"
+    },
+    "cert": {
+      "title": "Sertifikasi",
+      "value": "Tersertifikasi BNSP System Analyst"
+    }
+  },
+
+  "experience_page": {
+    "title": "Pengalaman & Pembelajaran",
+    "intro": "Magang, peran asisten praktikum, kepemimpinan organisasi kemahasiswaan, dan sertifikat di baliknya.",
+    "telkom_access": {
+      "company": "PT Telkom Akses",
+      "role": "Procurement & Management Internship",
+      "period": "Magang",
+      "bullet1": "Merancang dan mengembangkan website e-procurement internal perusahaan untuk merampingkan proses pengadaan dan manajemen kemitraan.",
+      "bullet2": "Berkolaborasi dengan pembimbing lapangan dan tim internal untuk memastikan sistem berjalan sesuai alur kerja divisi."
+    },
+    "teaching_assistant_section": "Asisten Praktikum — Telkom University Jakarta",
+    "ta_courses": {
+      "analysis": {
+        "title": "Analisis Perancangan Sistem Informasi",
+        "b1": "Membimbing mahasiswa dalam memahami dan mengimplementasikan UML diagrams seperti Activity, Use Case, Sequence, Class, Deployment, dan Component Diagram.",
+        "b2": "Membimbing mahasiswa dalam functional requirements dan system design."
+      },
+      "web": {
+        "title": "Pengembangan Aplikasi Website",
+        "b1": "Memberikan bimbingan kepada mahasiswa terkait konsep dan implementasi framework Laravel dalam pengembangan aplikasi website.",
+        "b2": "Memastikan mahasiswa memahami MVC architecture dan best practices."
+      },
+      "os": {
+        "title": "Sistem Operasi",
+        "b1": "Bertanggung jawab dalam membimbing mahasiswa serta mengelola platform virtualisasi menggunakan VMware Workstation Pro.",
+        "b2": "Fokus pada implementasi dan konfigurasi sistem operasi Rocky Linux sebagai lingkungan utama praktikum.",
+        "b3": "Mengarahkan mahasiswa dalam melaksanakan deployment dan pengelolaan berbagai aplikasi, termasuk Docker."
+      },
+      "enterprise": {
+        "title": "Arsitektur Enterprise",
+        "b1": "Membimbing sekitar 40 mahasiswa dalam memahami konsep penyelarasan proses bisnis dan infrastruktur TI.",
+        "b2": "Memfasilitasi perancangan blueprint arsitektur (Enterprise Modeling) menggunakan Visual Paradigm.",
+        "b3": "Mengevaluasi strategi integrasi sistem dan business process modeling."
+      }
+    },
+    "org_section": "Organisasi & Kepemimpinan",
+    "org": {
+      "chair_title": "Ketua HIMSI",
+      "chair_role": "Himpunan Mahasiswa Sistem Informasi — Telkom University Jakarta",
+      "chair_b1": "Memimpin dan mengelola organisasi kemahasiswaan beranggotakan 45 orang.",
+      "chair_b2": "Perumusan, implementasi visi, misi, dan program kerja himpunan.",
+      "chair_b3": "Pengawasan pelaksanaan program kerja sesuai rencana.",
+      "pr_title": "Divisi Hubungan Masyarakat",
+      "pr_b1": "Membangun hubungan baik dengan pihak di luar organisasi.",
+      "pr_b2": "Mengelola akun sosial media HIMSI (@himsi_telujkt) dengan 867 followers."
+    },
+    "cert_section": "Sertifikat & Lisensi",
+    "haki_issuer": "Kementerian Hukum dan HAM Republik Indonesia",
+    "haki_desc": "Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata.",
+    "bnsp_desc": "Sertifikasi BNSP merupakan kredensial resmi yang memvalidasi kompetensi sebagai System Analyst. Diperoleh melalui analisis mendalam terhadap sistem e-katering, termasuk requirement gathering, system design dengan UML, dan business process modeling yang komprehensif.",
+    "ta_title": "Asisten Praktikum / Teaching Assistant",
+    "ta_period": "Telkom University Jakarta • 4 Mata Kuliah",
+    "ta_desc": "Pengalaman Asisten Praktikum bukan sekadar peran administrasi—ini adalah bukti nyata dari kepemimpinan, kemampuan mengajar, dan penguasaan materi yang melampaui teori. Membimbing puluhan mahasiswa setiap semester membuktikan kedalaman pengetahuan dan kemampuan mentransfer expertise kepada orang lain.",
+    "cert_view": "Lihat Sertifikat"
+  },
+
   "projects": {
     "title": "Proyek",
     "intro": "Beberapa proyek utama yang menunjukkan kombinasi analisis sistem, eksekusi teknis, dan hasil yang bisa langsung dipakai.",
@@ -75,8 +189,7 @@
       "result": "Hasil",
       "objective": "Tujuan",
       "platform": "Platform"
-    }
-  ,
+    },
     "items": {
       "project-amira": {
         "title": "Sistem POS Kasir Toko Amira",
@@ -102,7 +215,7 @@
         }
       },
       "project-ekatering": {
-        "title": "E-Katering System Design",
+        "title": "E-Catering System Design",
         "badge": "Figma • UI/UX • Sertifikasi BNSP",
         "subtitle": "Sertifikasi BNSP System Analyst",
         "points": {
@@ -142,112 +255,13 @@
         }
       }
     }
-  }
+  },
 
-  ,
-  "home": {
-    "eyebrow": "S1 Sistem Informasi - Kampus Jakarta • Telkom University",
-    "name": "Muhammad Dafa Hambali",
-    "description": "Project Manager | System Analyst | Teaching Assistant",
-    "stats": {
-      "experience": "Months Experience",
-      "projects": "Major Projects",
-      "gpa": "GPA"
-    },
-    "actions": {
-      "viewPortfolio": "Lihat Portofolio",
-      "downloadCV": "Unduh CV"
-    }
-  },
-  "about": {
-    "title": "Tentang Saya",
-    "p1": "Saya lulus S1 Sistem Informasi dari Telkom University Jakarta dengan IPK 3.64/4.00.",
-    "p2": "Selama kuliah saya menerapkan teori ke praktik. Sebagai Asisten Praktikum di 4 mata kuliah, saya memperoleh pengalaman dari pemodelan sistem (UML, BPMN, AHP) hingga implementasi backend (Laravel, MySQL).",
-    "p3": "Selama magang di PT Telkom Akses, saya merancang dan mengembangkan sistem e-procurement internal yang merampingkan proses pengadaan.",
-    "skills_heading": "Keahlian & Tools",
-    "conclusion": "Kini, saya siap berkontribusi sebagai System Analyst atau Backend Developer di industri teknologi—dengan fokus pada kualitas kode, dokumentasi yang jelas, dan solusi yang user-centric."
-  },
-  "experience_page": {
-    "title": "Pengalaman & Pembelajaran",
-    "telkom_access": {
-      "company": "PT Telkom Akses",
-      "role": "Procurement & Management Internship",
-      "period": "Internship"
-    },
-    "teaching_assistant_section": "Asisten Praktikum - Telkom University Jakarta",
-    "cert_view": "Lihat Sertifikat",
-    "haki_issuer": "Kementerian Hukum dan HAM Republik Indonesia",
-    "cert_project_label": "Proyek:",
-    "haki_desc": "Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata. Platform ini dirancang untuk mempermudah layanan transportasi publik Jakarta dengan antarmuka yang ramah pengguna dan arsitektur yang dapat diskalakan.",
-    "teaching_assistant": {
-      "role_label": "Peran",
-      "context_label": "Peran"
-    }
-  },
   "contact": {
     "title": "Hubungi Saya",
     "intro": "Tertarik untuk berkolaborasi atau punya pertanyaan? Hubungi saya melalui salah satu channel di bawah. Saya akan merespons secepatnya! 🚀",
-    "cards": {
-      "email": "Email",
-      "email_action": "Kirim Email →",
-      "location": "Location",
-      "location_action": "Berasal dari Sulawesi Selatan",
-      "linkedin": "LinkedIn",
-      "linkedin_action": "Kunjungi Profil →",
-      "github": "GitHub",
-      "github_action": "Lihat Repos →",
-      "instagram": "Instagram",
-      "instagram_action": "Ikuti Saya →",
-      "whatsapp": "WhatsApp",
-      "whatsapp_action": "Kirim Pesan →"
-    },
-    "cta": {
-      "heading": "Siap Bekerja Sama?",
-      "text": "Mari diskusikan proyek berikutnya atau peluang kolaborasi. Saya terbuka untuk pertanyaan dan penawaran!",
-      "button": "Mulai Percakapan"
-    }
-  }
-  ,
-  "experience_page": {
-    "title": "Pengalaman & Pembelajaran",
-    "telkom_access": {
-      "company": "PT Telkom Akses",
-      "role": "Procurement & Management Internship",
-      "period": "Magang",
-      "bullet1": "Merancang dan mengembangkan website e-procurement internal perusahaan untuk merampingkan proses pengadaan dan manajemen kemitraan.",
-      "bullet2": "Berkolaborasi dengan pembimbing lapangan dan tim internal untuk memastikan sistem berjalan sesuai alur kerja divisi."
-    },
-    "haki_issuer": "Kementerian Hukum dan HAM Republik Indonesia",
-    "cert_project_label": "Proyek:",
-    "haki_desc": "Sertifikat Hak Cipta membuktikan kemampuan mengembangkan solusi inovatif untuk mengatasi masalah nyata.",
-    "cert_view": "Lihat Sertifikat"
-  }
-  ,
-  "home": {
-    "eyebrow": "Perangkat Lunak & Sistem",
-    "name": "Muhammad Dafa Hambali",
-    "description": "System Analyst dan Full-Stack Developer yang fokus pada aplikasi web, UX, dan decision support berbasis data.",
-    "stats": {
-      "experience": "Tahun Pengalaman",
-      "projects": "Proyek",
-      "gpa": "IPK"
-    },
-    "actions": {
-      "viewPortfolio": "Lihat Portofolio",
-      "downloadCV": "Unduh CV"
-    }
-  },
-  "about": {
-    "title": "Perjalanan Profesional",
-    "p1": "Saya lulus S1 Sistem Informasi dari Telkom University Jakarta dengan IPK 3.64/4.00.",
-    "p2": "Selama kuliah saya menerapkan teori ke praktik. Sebagai Asisten Praktikum di 4 mata kuliah, saya memperoleh pengalaman dari pemodelan sistem (UML, BPMN, AHP) hingga implementasi backend (Laravel, MySQL).",
-    "p3": "Selama magang di PT Telkom Akses, saya merancang dan mengembangkan sistem e-procurement internal yang merampingkan proses pengadaan.",
-    "p4": "Kini, saya siap berkontribusi sebagai System Analyst atau Backend Developer di industri teknologi—dengan fokus pada kualitas kode, dokumentasi yang jelas, dan solusi yang user-centric.",
-    "conclusion": "Terbuka untuk kolaborasi dan peluang untuk membangun perangkat lunak yang berdampak."
-  },
-  "contact": {
-    "title": "Kontak",
-    "intro": "Jangan ragu menghubungi melalui email, LinkedIn, atau platform sosial.",
+    "copy": "Salin",
+    "copied": "Tersalin!",
     "cards": {
       "email": "Email",
       "email_action": "Kirim Email →",
@@ -258,7 +272,7 @@
       "github": "GitHub",
       "github_action": "Lihat Repos →",
       "instagram": "Instagram",
-      "instagram_action": "Ikuti →",
+      "instagram_action": "Ikuti Saya →",
       "whatsapp": "WhatsApp",
       "whatsapp_action": "Kirim Pesan →"
     },

@@ -1,32 +1,50 @@
 ﻿<template>
-  <section class="hero">
-    <div class="hero-visual">
-      <div class="photo-frame">
-        <img :src="profilePhoto" alt="Foto profil Muhammad Dafa Hambali" class="profile-photo" />
-      </div>
-    </div>
-
+  <section class="section hero">
     <div class="hero-content">
       <p class="eyebrow">{{ $t('home.eyebrow') }}</p>
-      <h1>{{ $t('home.name') }}</h1>
-      <p class="description">{{ $t('home.description') }}</p>
+
+      <h1 class="hero-title">
+        {{ $t('home.name') }}
+        <span class="wave" aria-hidden="true">👋</span>
+      </h1>
+
+      <p class="hero-role">{{ $t('home.description') }}</p>
+
+      <p class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        {{ $t('home.status') }}
+      </p>
 
       <div class="stats">
-        <div><span> < 1 </span>{{ $t('home.stats.experience') }}</div>
-        <div><span>4</span>{{ $t('home.stats.projects') }}</div>
-        <div><span>3.64</span>{{ $t('home.stats.gpa') }}</div>
-      </div>
-
-      <div class="tech-stack">
-        <span class="tech-icon">Laravel</span>
-        <span class="tech-icon">Vue.js</span>
-        <span class="tech-icon">Figma</span>
-        <span class="tech-icon">UML</span>
+        <div class="stat">
+          <span class="stat-value">&lt; 1</span>
+          <span class="stat-label">{{ $t('home.stats.experience') }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">4</span>
+          <span class="stat-label">{{ $t('home.stats.projects') }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">3.64</span>
+          <span class="stat-label">{{ $t('home.stats.gpa') }}</span>
+        </div>
       </div>
 
       <div class="actions">
-        <router-link to="/projects" class="btn primary">{{ $t('home.actions.viewPortfolio') }}</router-link>
-        <a href="#" class="btn secondary">{{ $t('home.actions.downloadCV') }}</a>
+        <a class="btn primary" href="#projects">{{ $t('home.actions.viewPortfolio') }}</a>
+        <a class="btn" href="/CV_Muhammad_Dafa_Hambali.pdf" target="_blank" rel="noopener">
+          {{ $t('home.actions.downloadCV') }}
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <img :src="profilePhoto" alt="Foto Muhammad Dafa Hambali" class="profile-photo" />
+      </div>
+      <div class="photo-badge">
+        <span class="photo-badge-title">{{ $t('home.badge.title') }}</span>
+        <span class="photo-badge-sub">{{ $t('home.badge.sub') }}</span>
       </div>
     </div>
   </section>
@@ -39,163 +57,196 @@ const profilePhoto = new URL('../../DAFA00035.JPG', import.meta.url).href
 <style scoped>
 .hero {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 3rem;
   align-items: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 12px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
+.hero-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
+}
+
+.wave {
+  display: inline-block;
+  animation: wave 2.4s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(14deg); }
+}
+
+.hero-role {
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 56ch;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 1.1rem 0 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(41, 214, 176, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(41, 214, 176, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(41, 214, 176, 0); }
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* photo */
 .hero-visual {
+  position: relative;
   display: flex;
   justify-content: center;
 }
 
 .photo-frame {
-  width: 240px;
-  height: 240px;
+  width: min(300px, 100%);
+  aspect-ratio: 1 / 1;
   padding: 10px;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .profile-photo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
-  border-radius: 20px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 22px;
   display: block;
 }
 
-.hero-content {
-  text-align: left;
+.photo-badge {
+  position: absolute;
+  bottom: -16px;
+  right: 4%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
-.eyebrow {
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.9;
-  margin: 0 0 0.75rem 0;
-}
-
-h1 { font-size: 3rem; margin: 0 0 0.5rem 0; }
-.description { font-size: 1rem; opacity: 0.85; margin: 0.75rem 0 2rem 0; }
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 2rem 0;
+.photo-badge-title {
   font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-strong);
 }
 
-.stats span {
-  font-size: 1.8rem;
-  font-weight: bold;
-  display: block;
+.photo-badge-sub {
+  font-size: 0.75rem;
+  color: var(--text-faint);
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background: white;
-  color: #667eea;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  margin-top: 1rem;
-}
-
-.tech-stack {
-  display: flex;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-  margin: 1.5rem 0;
-}
-
-.tech-icon {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.btn {
-  transition: all 0.3s ease;
-}
-
-.btn.primary {
-  background: white;
-  color: #667eea;
-}
-
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.btn.secondary {
-  background: transparent;
-  color: white;
-  border: 1.5px solid white;
-}
-
-.btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+    gap: 2.2rem;
     text-align: center;
+    padding-top: 2.2rem;
+    padding-bottom: 2.4rem;
   }
 
-  .hero-content {
-    text-align: center;
+  .hero-role {
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .photo-frame {
-    width: 200px;
-    height: 200px;
-  }
-
-  .tech-stack {
-    justify-content: center;
-  }
-
+  .stats,
   .actions {
     justify-content: center;
   }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .photo-badge {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
-@media (max-width: 560px) {
-  .hero {
-    padding: 2.5rem 1.25rem;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-  }
-
+@media (max-width: 520px) {
   .stats {
-    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .stat {
+    flex: 1 1 auto;
+  }
+
+  .actions .btn {
+    width: 100%;
   }
 }
 </style>

@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "simple-icons": "^16.34.0",
     "vue": "^3.4.38",
-    "vue-i18n": "^9.14.5",
-    "vue-router": "^4.2.12"
+    "vue-i18n": "^9.14.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",

@@ -1,177 +1,119 @@
 <template>
-  <section class="about-section">
-    <h1>{{ $t('about.title') }}</h1>
+  <section class="section">
+    <header class="section-head">
+      <span class="section-tag">{{ $t('nav.about') }}</span>
+      <h2 class="section-title">{{ $t('about.title') }}</h2>
+      <p class="section-intro">{{ $t('about.intro') }}</p>
+    </header>
 
     <div class="about-grid">
-      <div class="about-left">
-        <h2>Perjalanan Profesional</h2>
+      <div class="about-text">
         <p v-html="$t('about.p1')"></p>
         <p v-html="$t('about.p2')"></p>
         <p v-html="$t('about.p3')"></p>
-        <p>{{ $t('about.conclusion') || '' }}</p>
+
+        <blockquote class="highlight">
+          {{ $t('about.conclusion') }}
+        </blockquote>
       </div>
 
-      <div class="about-right">
-        <h2>Keahlian & Tools</h2>
-
-        <div class="skills-category">
-          <h3>📊 System Analysis & QA</h3>
-          <div class="skill-badges">
-            <span class="badge">UML Diagrams</span>
-            <span class="badge">BPMN Modeling</span>
-            <span class="badge">AHP Decision Making</span>
-            <span class="badge">Requirements Analysis</span>
-            <span class="badge">Manual Testing</span>
-            <span class="badge">Web Automation Testing (Selenium)</span>
-            <span class="badge">Bug Reporting</span>
-            <span class="badge">Test Scenario Development</span>          
+      <aside class="facts">
+        <h3 class="facts-title">{{ $t('about.facts.title') }}</h3>
+        <dl class="facts-list">
+          <div v-for="fact in facts" :key="fact.labelKey" class="fact">
+            <dt>{{ $t(fact.labelKey) }}</dt>
+            <dd>{{ $t(fact.valueKey) }}</dd>
           </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>💻 Web Development</h3>
-          <div class="skill-badges">
-            <span class="badge">Laravel (MVC)</span>
-            <span class="badge">Vue.js 3</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">RESTful APIs</span>
-            <span class="badge">Microsoft Excel (Test Reporting)</span>    
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>🖥️ Infrastructure & Tools</h3>
-          <div class="skill-badges">
-            <span class="badge">Linux (Rocky OS)</span>
-            <span class="badge">Docker</span>
-            <span class="badge">VMware Virtualization</span>
-            <span class="badge">Visual Paradigm</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>🎨 Design & Documentation</h3>
-          <div class="skill-badges">
-            <span class="badge">Figma UI/UX</span>
-            <span class="badge">Enterprise Modeling</span>
-            <span class="badge">Technical Documentation</span>
-            <span class="badge">Canva Design</span>
-          </div>
-        </div>
-      </div>
+        </dl>
+      </aside>
     </div>
   </section>
 </template>
 
 <script setup>
+const facts = [
+  { labelKey: 'about.facts.education', valueKey: 'about.facts.educationValue' },
+  { labelKey: 'about.facts.gpa', valueKey: 'about.facts.gpaValue' },
+  { labelKey: 'about.facts.role', valueKey: 'about.facts.roleValue' },
+  { labelKey: 'about.facts.location', valueKey: 'about.facts.locationValue' },
+  { labelKey: 'about.facts.focus', valueKey: 'about.facts.focusValue' },
+]
 </script>
 
 <style scoped>
-.about-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #e8eef7;
-  text-align: center;
+.about-text p {
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #d7e2f2;
-}
-
-h3 {
-  font-size: 1.1rem;
-  margin: 1.5rem 0 0.8rem;
-  color: #9ed0ff;
-}
-
-p {
-  line-height: 1.8;
-  color: #cfe6ff;
-  margin-bottom: 1rem;
-}
-
-strong {
-  color: #73b7ff;
+.about-text :deep(strong) {
+  color: var(--accent);
   font-weight: 600;
 }
 
-.about-grid {
+.highlight {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--accent-2);
+  border-radius: 0 12px 12px 0;
+  background: var(--surface-2);
+  color: var(--text);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.facts {
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  padding: 1.3rem 1.4rem;
+}
+
+.facts-title {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.facts-list {
+  margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 0.9rem;
 }
 
-.about-left {
-  padding-right: 1rem;
+.fact {
+  display: grid;
+  gap: 2px;
 }
 
-.about-right {
-  padding-left: 1rem;
+.fact dt {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
 }
 
-.skills-category {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
+.fact dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-strong);
 }
 
-.skill-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  background: rgba(88, 149, 255, 0.15);
-  color: #9ed0ff;
-  border: 1px solid rgba(88, 149, 255, 0.3);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.badge:hover {
-  background: rgba(88, 149, 255, 0.25);
-  border-color: rgba(88, 149, 255, 0.6);
-}
-
-@media (max-width: 920px) {
+@media (max-width: 880px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .about-left,
-  .about-right {
-    padding: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .about-section {
-    padding: 2rem 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
+    gap: 1.5rem;
   }
 }
 </style>

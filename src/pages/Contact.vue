@@ -1,269 +1,205 @@
 <template>
-  <section class="contact-section">
-    <h1>{{ $t('contact.title') }}</h1>
-    <p class="intro">{{ $t('contact.intro') }}</p>
+  <section class="section">
+    <header class="section-head">
+      <span class="section-tag">{{ $t('nav.contact') }}</span>
+      <h2 class="section-title">{{ $t('contact.title') }}</h2>
+      <p class="section-intro">{{ $t('contact.intro') }}</p>
+    </header>
 
     <div class="contact-grid">
-      <!-- Email Card -->
-      <a href="mailto:dfhmbli09@gmail.com" class="contact-card">
-        <div class="card-icon">✉️</div>
-        <h3>{{ $t('contact.cards.email') || 'Email' }}</h3>
-        <p class="card-value">dfhmbli09@gmail.com</p>
-        <span class="card-action">{{ $t('contact.cards.email_action') || 'Send Email →' }}</span>
-      </a>
-
-      <!-- Location Card -->
       <div class="contact-card">
-        <div class="card-icon">📍</div>
-        <h3>{{ $t('contact.cards.location') || 'Location' }}</h3>
-        <p class="card-value">Makassar, Sulawesi Selatan, Indonesia</p>
-        <span class="card-action">{{ $t('contact.cards.location_action') || 'Based in Makassar' }}</span>
+        <div class="card-icon" aria-hidden="true">✉️</div>
+        <h3 class="card-title">{{ $t('contact.cards.email') }}</h3>
+        <p class="card-value">dfhmbli09@gmail.com</p>
+        <div class="card-actions">
+          <a class="card-link" href="mailto:dfhmbli09@gmail.com">{{ $t('contact.cards.email_action') }}</a>
+          <button class="copy-btn" type="button" @click="copyEmail">
+            <span v-if="!copied">{{ $t('contact.copy') }}</span>
+            <span v-else class="copied">{{ $t('contact.copied') }}</span>
+          </button>
+        </div>
       </div>
 
-      <!-- LinkedIn Card -->
-      <a href="https://www.linkedin.com/in/muhammad-dafa-hambali" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="card-icon">💼</div>
-        <h3>{{ $t('contact.cards.linkedin') || 'LinkedIn' }}</h3>
-        <p class="card-value">Connect with me</p>
-        <span class="card-action">{{ $t('contact.cards.linkedin_action') || 'Visit Profile →' }}</span>
-      </a>
-
-      <!-- GitHub Card -->
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="card-icon">💻</div>
-        <h3>{{ $t('contact.cards.github') || 'GitHub' }}</h3>
-        <p class="card-value">Check my projects</p>
-        <span class="card-action">{{ $t('contact.cards.github_action') || 'View Repos →' }}</span>
-      </a>
-
-      <!-- Instagram Card -->
-      <a href="https://www.instagram.com/dafahambali?igsh=MWtmY3Roa3B5cWM2YQ==" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="card-icon">📸</div>
-        <h3>{{ $t('contact.cards.instagram') || 'Instagram' }}</h3>
-        <p class="card-value">@dafahambali</p>
-        <span class="card-action">{{ $t('contact.cards.instagram_action') || 'Follow Me →' }}</span>
-      </a>
-
-      <!-- WhatsApp Card -->
-      <a href="https://wa.me/6285254357690" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="card-icon">💬</div>
-        <h3>{{ $t('contact.cards.whatsapp') || 'WhatsApp' }}</h3>
-        <p class="card-value">Quick Message</p>
-        <span class="card-action">{{ $t('contact.cards.whatsapp_action') || 'Send Message →' }}</span>
-      </a>
+      <component
+        :is="card.href ? 'a' : 'div'"
+        v-for="card in linkCards"
+        :key="card.key"
+        class="contact-card"
+        :href="card.href || undefined"
+        :target="card.external ? '_blank' : undefined"
+        :rel="card.external ? 'noopener noreferrer' : undefined"
+      >
+        <div class="card-icon" aria-hidden="true">{{ card.icon }}</div>
+        <h3 class="card-title">{{ $t(`contact.cards.${card.key}`) }}</h3>
+        <p class="card-value">{{ card.value }}</p>
+        <span v-if="card.href" class="card-link">{{ $t(`contact.cards.${card.key}_action`) }}</span>
+        <span v-else class="card-note">{{ $t(`contact.cards.${card.key}_action`) }}</span>
+      </component>
     </div>
 
     <div class="cta-section">
-      <h2>{{ $t('contact.cta.heading') }}</h2>
-      <p>{{ $t('contact.cta.text') }}</p>
-      <a href="mailto:dfhmbli09@gmail.com" class="cta-button">{{ $t('contact.cta.button') }}</a>
+      <h3 class="cta-heading">{{ $t('contact.cta.heading') }}</h3>
+      <p class="cta-text">{{ $t('contact.cta.text') }}</p>
+      <div class="cta-actions">
+        <a href="mailto:dfhmbli09@gmail.com" class="btn primary">{{ $t('contact.cta.button') }}</a>
+        <a
+          class="btn"
+          href="/CV_Muhammad_Dafa_Hambali.pdf"
+          target="_blank"
+          rel="noopener"
+        >{{ $t('home.actions.downloadCV') }}</a>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-// Contact data for reusability
-const contacts = [
-  {
-    icon: '✉️',
-    title: 'Email',
-    value: 'dfhmbli09@gmail.com',
-    action: 'Send Email',
-    href: 'mailto:dfhmbli09@gmail.com',
-    isLink: true
-  },
-  {
-    icon: '📍',
-    title: 'Location',
-    value: 'Makassar, Sulawesi Selatan',
-    action: 'Based in South Sulawesi',
-    isLink: false
-  },
-  {
-    icon: '💼',
-    title: 'LinkedIn',
-    value: '@dafahambali',
-    action: 'Visit Profile',
-    href: 'https://linkedin.com/in/dafa-hambali',
-    target: '_blank',
-    isLink: true
-  },
-  {
-    icon: '💻',
-    title: 'GitHub',
-    value: '@dafahambali',
-    action: 'View Repos',
-    href: 'https://github.com/dafahambali',
-    target: '_blank',
-    isLink: true
-  },
-  {
-    icon: '📸',
-    title: 'Instagram',
-    value: '@dafahambali',
-    action: 'Follow',
-    href: 'https://instagram.com/dafahambali',
-    target: '_blank',
-    isLink: true
-  },
-  {
-    icon: '💬',
-    title: 'WhatsApp',
-    value: '+62 852-5435-7690',
-    action: 'Message',
-    href: 'https://wa.me/6285254357690',
-    target: '_blank',
-    isLink: true
+import { ref } from 'vue'
+
+const EMAIL = 'dfhmbli09@gmail.com'
+const copied = ref(false)
+let timer = null
+
+async function copyEmail () {
+  try {
+    await navigator.clipboard.writeText(EMAIL)
+  } catch (e) {
+    // Fallback untuk browser lama / konteks tanpa clipboard API
+    const el = document.createElement('textarea')
+    el.value = EMAIL
+    document.body.appendChild(el)
+    el.select()
+    document.execCommand('copy')
+    document.body.removeChild(el)
   }
-];
+
+  copied.value = true
+  clearTimeout(timer)
+  timer = setTimeout(() => { copied.value = false }, 1800)
+}
+
+const linkCards = [
+  { key: 'location', icon: '📍', value: 'Makassar, Sulawesi Selatan', href: null, external: false },
+  { key: 'linkedin', icon: '💼', value: 'muhammad-dafa-hambali', href: 'https://www.linkedin.com/in/muhammad-dafa-hambali', external: true },
+  { key: 'github', icon: '💻', value: 'github.com', href: 'https://github.com', external: true },
+  { key: 'instagram', icon: '📸', value: '@dafahambali', href: 'https://www.instagram.com/dafahambali', external: true },
+  { key: 'whatsapp', icon: '💬', value: '+62 852-5435-7690', href: 'https://wa.me/6285254357690', external: true },
+]
 </script>
 
 <style scoped>
-.contact-section {
-  padding: 3rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #e8eef7;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.intro {
-  font-size: 1rem;
-  color: #cfe6ff;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
-/* Contact Grid - Clean & Simple */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
 }
 
 .contact-card {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
+  padding: 1.3rem 1.4rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-.contact-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(88, 149, 255, 0.4);
+a.contact-card:hover {
   transform: translateY(-4px);
+  background: var(--surface-3);
+  border-color: var(--accent);
 }
 
 .card-icon {
-  font-size: 2rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.7rem;
   line-height: 1;
+  margin-bottom: 0.7rem;
 }
 
-.contact-card h3 {
-  font-size: 1.1rem;
-  color: #e8eef7;
-  margin: 0 0 0.5rem 0;
+.card-title {
+  margin: 0 0 0.4rem;
+  color: var(--text-strong);
+  font-size: 1.02rem;
   font-weight: 600;
 }
 
 .card-value {
-  font-size: 0.95rem;
-  color: #9ed0ff;
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 0.8rem;
   flex-grow: 1;
-}
-
-.card-action {
-  font-size: 0.85rem;
-  color: #73b7ff;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.contact-card:hover .card-action {
-  color: #cfe6ff;
-}
-
-/* CTA Section */
-.cta-section {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-  border: 1px solid rgba(88, 149, 255, 0.2);
-  border-radius: 14px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.cta-section h2 {
-  font-size: 1.6rem;
-  color: #e8eef7;
-  margin: 0 0 0.8rem 0;
-  font-weight: 700;
-}
-
-.cta-section p {
-  font-size: 0.95rem;
-  color: #cfe6ff;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.6;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
+  font-size: 0.92rem;
+  color: var(--accent);
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  border: none;
+  word-break: break-word;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.copy-btn {
+  padding: 5px 11px;  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-3);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+.copy-btn:hover {
+  color: var(--text-strong);
+  border-color: var(--accent);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .contact-section {
-    padding: 2rem 1.5rem;
-  }
+.copy-btn .copied {
+  color: var(--accent-2);
+}
 
-  h1 {
-    font-size: 2rem;
-  }
+.card-note {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
 
-  .intro {
-    font-size: 0.9rem;
-    margin-bottom: 1.8rem;
-  }
+/* CTA */
+.cta-section {
+  margin-top: 1.4rem;
+  padding: 2.2rem 1.6rem;
+  text-align: center;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top center, var(--glow-1), transparent 60%),
+    var(--surface-2);
+  border: 1px solid var(--border);
+}
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+.cta-heading {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: var(--text-strong);
+}
 
-  .cta-section {
-    padding: 1.5rem;
-  }
+.cta-text {
+  margin: 0 auto 1.5rem;
+  max-width: 56ch;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
 
-  .cta-section h2 {
-    font-size: 1.3rem;
+.cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 520px) {
+  .cta-actions .btn {
+    width: 100%;
   }
 }
 </style>

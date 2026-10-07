@@ -1,14 +1,18 @@
 <template>
-  <section class="projects-section">
-    <h1>{{ $t('projects.title') }}</h1>
-    <p class="intro">{{ $t('projects.intro') }}</p>
+  <section class="section">
+    <header class="section-head">
+      <span class="section-tag">{{ $t('nav.projects') }}</span>
+      <h2 class="section-title">{{ $t('projects.title') }}</h2>
+      <p class="section-intro">{{ $t('projects.intro') }}</p>
+    </header>
 
-    <div class="projects-grid">
+    <div class="projects-list">
       <article
-        v-for="project in projects"
+        v-for="(project, index) in projects"
         :key="project.id"
         :id="project.id"
         class="project-card"
+        :class="{ flip: index % 2 === 1, 'no-media': !project.image }"
       >
         <a
           v-if="project.image"
@@ -20,78 +24,89 @@
           <img :src="project.image" :alt="$t(project.titleKey)" class="project-image" />
         </a>
 
-        <h2>{{ project.icon }} {{ $t(project.titleKey) }}</h2>
-        <span class="badge">{{ $t(project.badgeKey) }}</span>
-        <p class="subtitle">{{ $t(project.subtitleKey) }}</p>
-        <ul>
-          <li v-for="item in project.points" :key="item.labelKey + (item.valueKey || item.value)">
-            <strong>{{ $t(`projects.labels.${item.labelKey}`) }}</strong>: {{ item.valueKey ? $t(item.valueKey) : item.value }}
-          </li>
-        </ul>
+        <div class="project-body">
+          <div class="project-heading">
+            <span class="project-icon" aria-hidden="true">{{ project.icon }}</span>
+            <div>
+              <h3 class="project-title">{{ $t(project.titleKey) }}</h3>
+              <span class="badge">{{ $t(project.badgeKey) }}</span>
+            </div>
+          </div>
 
-        <div v-if="project.deliverables" class="deliverables-section">
-          <h3>{{ $t('projects.deliverables.title') }}</h3>
-          <ul class="deliverables-list">
-            <li v-for="item in project.deliverables" :key="item.key">
-              {{ $t(item.key) }}
+          <p class="subtitle">{{ $t(project.subtitleKey) }}</p>
+
+          <ul class="project-points">
+            <li v-for="item in project.points" :key="item.labelKey + (item.valueKey || '')">
+              <strong>{{ $t(`projects.labels.${item.labelKey}`) }}</strong
+              >: {{ item.valueKey ? $t(item.valueKey) : item.value }}
             </li>
           </ul>
-        </div>
 
-        <div v-if="project.testCases" class="testing-section">
-          <h3>{{ $t('projects.testing.title') }}</h3>
-          <p class="testing-intro">{{ $t('projects.testing.intro') }}</p>
-
-          <div v-for="testCase in project.testCases" :key="testCase.id" class="testing-card">
-            <div class="testing-header">
-              <div>
-                <span class="testing-id">{{ testCase.id }}</span>
-                <h4>{{ $t(testCase.titleKey) }}</h4>
-              </div>
-              <div class="testing-badges">
-                <span class="testing-badge" :class="testCase.typeClass">{{ $t(testCase.typeKey) }}</span>
-                <span class="testing-status" :class="testCase.statusClass">{{ $t(testCase.statusKey) }}</span>
-              </div>
-            </div>
-
-            <p class="testing-scenario">
-              <strong>{{ $t('projects.testing.scenario') }}</strong>
-              {{ $t(testCase.scenarioKey) }}
-            </p>
-
-            <div class="testing-steps">
-              <strong>{{ $t('projects.testing.steps') }}</strong>
-              <ol>
-                <li v-for="stepKey in testCase.stepKeys" :key="stepKey">{{ $t(stepKey) }}</li>
-              </ol>
-            </div>
-
-            <p class="testing-expected">
-              <strong>{{ $t('projects.testing.expectedResult') }}</strong>
-              {{ $t(testCase.expectedKey) }}
-            </p>
+          <div v-if="project.deliverables" class="block">
+            <h4 class="block-title">{{ $t('projects.deliverables.title') }}</h4>
+            <ul class="deliverables-list">
+              <li v-for="item in project.deliverables" :key="item.key">{{ $t(item.key) }}</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="cert-links" v-if="project.certLinks">
-          <a v-for="cert in project.certLinks" :key="cert.labelKey || cert.label" class="card-link" :href="cert.url" target="_blank" rel="noopener noreferrer">
-            {{ cert.labelKey ? $t(cert.labelKey) : cert.label }}
+          <div v-if="project.testCases" class="block">
+            <h4 class="block-title">{{ $t('projects.testing.title') }}</h4>
+            <p class="block-intro">{{ $t('projects.testing.intro') }}</p>
+
+            <div v-for="testCase in project.testCases" :key="testCase.id" class="testing-card">
+              <div class="testing-header">
+                <div>
+                  <span class="testing-id">{{ testCase.id }}</span>
+                  <h5 class="testing-title">{{ $t(testCase.titleKey) }}</h5>
+                </div>
+                <div class="testing-badges">
+                  <span class="testing-badge" :class="testCase.typeClass">{{ $t(testCase.typeKey) }}</span>
+                  <span class="testing-status" :class="testCase.statusClass">{{ $t(testCase.statusKey) }}</span>
+                </div>
+              </div>
+
+              <p class="testing-line">
+                <strong>{{ $t('projects.testing.scenario') }}</strong>
+                {{ $t(testCase.scenarioKey) }}
+              </p>
+
+              <div class="testing-steps">
+                <strong>{{ $t('projects.testing.steps') }}</strong>
+                <ol>
+                  <li v-for="stepKey in testCase.stepKeys" :key="stepKey">{{ $t(stepKey) }}</li>
+                </ol>
+              </div>
+
+              <p class="testing-line">
+                <strong>{{ $t('projects.testing.expectedResult') }}</strong>
+                {{ $t(testCase.expectedKey) }}
+              </p>
+            </div>
+          </div>
+
+          <div class="project-links" v-if="project.certLinks">
+            <a
+              v-for="cert in project.certLinks"
+              :key="cert.labelKey || cert.label"
+              class="card-link"
+              :href="cert.url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ cert.labelKey ? $t(cert.labelKey) : cert.label }}
+            </a>
+          </div>
+
+          <a
+            v-else-if="project.link"
+            class="card-link"
+            :href="project.link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('projects.viewDetails') }}
           </a>
         </div>
-
-        <a
-          v-else-if="project.link"
-          class="card-link"
-          :href="project.link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {{ project.linkLabelKey ? $t(project.linkLabelKey) : $t('projects.viewDetails') }}
-        </a>
-
-        <a v-else class="card-link" :href="`#${project.id}`">
-          {{ $t('projects.viewDetails') }}
-        </a>
       </article>
     </div>
   </section>
@@ -124,9 +139,7 @@ const projects = [
       { labelKey: 'features', valueKey: 'projects.items.project-jmt.points.features' },
       { labelKey: 'scope', valueKey: 'projects.items.project-jmt.points.scope' },
     ],
-    certLinks: [
-      { labelKey: 'projects.items.project-jmt.certLinks.haki', url: '/Sertifikat/Haki_compressed.pdf' },
-    ],
+    certLinks: [{ labelKey: 'projects.items.project-jmt.certLinks.haki', url: '/Sertifikat/Haki_compressed.pdf' }],
   },
   {
     id: 'project-ekatering',
@@ -147,9 +160,7 @@ const projects = [
       { key: 'projects.items.project-ekatering.deliverables.wireframe' },
       { key: 'projects.items.project-ekatering.deliverables.uml' },
     ],
-    certLinks: [
-      { labelKey: 'projects.items.project-ekatering.certLinks.bnsp', url: '/Sertifikat/BNSP.jpg' },
-    ],
+    certLinks: [{ labelKey: 'projects.items.project-ekatering.certLinks.bnsp', url: '/Sertifikat/BNSP.jpg' }],
   },
   {
     id: 'project-pilihanku',
@@ -229,140 +240,163 @@ const projects = [
 </script>
 
 <style scoped>
-.projects-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem 3rem;
-}
-
-.projects-section h1 {
-  font-size: 2.5rem;
-  margin: 0 0 0.75rem;
-  color: #e8eef7;
-}
-
-.intro {
-  margin: 0 0 2rem;
-  color: #cfe6ff;
-  line-height: 1.7;
-  max-width: 720px;
-}
-
-.projects-grid {
+.projects-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 16px;
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 1.35rem 1.4rem 1.2rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.3rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  scroll-margin-top: 90px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--border);
+  transform: translateY(-3px);
+}
+
+.project-card.no-media {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-card.flip .project-image-link {
+  order: 2;
 }
 
 .project-image-link {
   display: block;
-  margin-bottom: 1rem;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-3);
 }
 
 .project-image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 300px;
+  object-fit: cover;
 }
 
-.project-card h2 {
-  margin: 0 0 0.7rem;
-  color: #f0f5ff;
-  font-size: 1.2rem;
+.project-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.project-icon {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.project-title {
+  margin: 0 0 0.5rem;
+  color: var(--text-strong);
+  font-size: 1.25rem;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.8rem;
+  padding: 0.32rem 0.75rem;
   border-radius: 999px;
-  background: rgba(88, 149, 255, 0.14);
-  border: 1px solid rgba(88, 149, 255, 0.28);
-  color: #9ed0ff;
-  font-size: 0.84rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
 .subtitle {
-  margin: 0.9rem 0 1rem;
-  color: #adc0da;
+  margin: 0.9rem 0 0.6rem;
+  color: var(--text-faint);
   font-style: italic;
+  font-size: 0.9rem;
 }
 
-.project-card ul {
+.project-points {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.deliverables-section {
-  margin-top: 1.1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.project-points li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin: 0.45rem 0;
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 
-.deliverables-section h3 {
-  margin: 0 0 0.45rem;
-  color: #f0f5ff;
-  font-size: 1rem;
+.project-points li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.project-points strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.block {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.block-title {
+  margin: 0 0 0.5rem;
+  color: var(--text-strong);
+  font-size: 0.98rem;
+}
+
+.block-intro {
+  margin: 0 0 0.85rem;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .deliverables-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  gap: 0.4rem;
 }
 
 .deliverables-list li {
   position: relative;
   padding-left: 1.2rem;
-  margin: 0.45rem 0;
   line-height: 1.55;
-  color: #d7e2f2;
+  color: var(--text-muted);
 }
 
 .deliverables-list li::before {
   content: "▸";
   position: absolute;
   left: 0;
-  color: #73b7ff;
+  color: var(--accent-2);
 }
 
-.testing-section {
-  margin-top: 1.1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.testing-section h3 {
-  margin: 0 0 0.35rem;
-  color: #f0f5ff;
-  font-size: 1rem;
-}
-
-.testing-intro {
-  margin: 0 0 0.9rem;
-  color: #adc0da;
-  line-height: 1.6;
-}
-
+/* test cases */
 .testing-card {
   padding: 0.95rem 1rem;
-  margin-top: 0.85rem;
+  margin-top: 0.8rem;
   border-radius: 12px;
-  background: rgba(10, 18, 32, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface-3);
+  border: 1px solid var(--border-soft);
 }
 
 .testing-header {
@@ -370,22 +404,23 @@ const projects = [
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.8rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
 }
 
 .testing-id {
   display: inline-block;
-  margin-bottom: 0.3rem;
-  color: #73b7ff;
-  font-size: 0.78rem;
+  margin-bottom: 0.25rem;
+  color: var(--accent);
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-.testing-header h4 {
+.testing-title {
   margin: 0;
-  color: #f0f5ff;
-  font-size: 0.98rem;
+  color: var(--text-strong);
+  font-size: 0.95rem;
 }
 
 .testing-badges {
@@ -399,97 +434,74 @@ const projects = [
 .testing-status {
   display: inline-flex;
   align-items: center;
-  padding: 0.32rem 0.62rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .testing-badge.positive {
-  background: rgba(66, 179, 126, 0.14);
-  border: 1px solid rgba(66, 179, 126, 0.3);
-  color: #8fe0b5;
+  background: rgba(66, 179, 126, 0.16);
+  border: 1px solid rgba(66, 179, 126, 0.35);
+  color: var(--accent-ok);
 }
 
 .testing-badge.negative {
-  background: rgba(255, 167, 38, 0.14);
-  border: 1px solid rgba(255, 167, 38, 0.28);
-  color: #ffc97a;
+  background: rgba(255, 183, 77, 0.16);
+  border: 1px solid rgba(255, 183, 77, 0.32);
+  color: var(--accent-warn);
 }
 
 .testing-status.pass {
-  background: rgba(88, 149, 255, 0.14);
-  border: 1px solid rgba(88, 149, 255, 0.28);
-  color: #9ed0ff;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--accent);
 }
 
-.testing-scenario,
-.testing-expected {
-  margin: 0.65rem 0 0;
-  color: #d7e2f2;
+.testing-line {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
   line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.testing-line strong,
+.testing-steps strong {
+  color: var(--text);
 }
 
 .testing-steps {
-  margin-top: 0.75rem;
-  color: #d7e2f2;
-}
-
-.testing-steps strong,
-.testing-scenario strong,
-.testing-expected strong {
-  color: #f0f5ff;
+  margin-top: 0.7rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
 }
 
 .testing-steps ol {
-  margin: 0.45rem 0 0;
+  margin: 0.4rem 0 0;
   padding-left: 1.2rem;
 }
 
 .testing-steps li {
-  margin: 0.3rem 0;
+  margin: 0.28rem 0;
   line-height: 1.55;
 }
 
-.project-card li {
-  position: relative;
-  padding-left: 1.2rem;
-  margin: 0.5rem 0;
-  line-height: 1.6;
-  color: #d7e2f2;
-}
-
-.project-card li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: #73b7ff;
-}
-
-.card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 1rem;
-  color: #9ed0ff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
 }
 
-.card-link::after {
-  content: "↗";
-  font-size: 0.85em;
-}
+@media (max-width: 860px) {
+  .project-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.1rem;
+  }
 
-.card-link:hover {
-  color: #d7ecff;
-  text-decoration: underline;
-}
-
-@media (max-width: 760px) {
-  .projects-section {
-    padding: 2rem 1rem 2.5rem;
+  .project-card.flip .project-image-link {
+    order: 0;
   }
 
   .testing-header {
@@ -498,14 +510,6 @@ const projects = [
 
   .testing-badges {
     justify-content: flex-start;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects-section h1 {
-    font-size: 2rem;
   }
 }
 </style>

@@ -2,10 +2,124 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "projects": "Projects",
+    "skills": "Skills",
     "experience": "Experience",
+    "projects": "Projects",
     "contact": "Contact"
   },
+
+  "home": {
+    "eyebrow": "Software & Systems",
+    "name": "Muhammad Dafa Hambali",
+    "description": "System Analyst and Full-Stack Developer focusing on web applications, UX, and data-driven decision support.",
+    "status": "Open to new opportunities",
+    "badge": {
+      "title": "System Analyst",
+      "sub": "BNSP Certified"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects",
+      "gpa": "GPA"
+    },
+    "actions": {
+      "viewPortfolio": "View Portfolio",
+      "downloadCV": "Download CV"
+    }
+  },
+
+  "about": {
+    "title": "About Me",
+    "intro": "A quick look at who I am, how I work, and what I focus on.",
+    "p1": "I graduated with a Bachelor's degree in Information Systems from Telkom University Jakarta with a GPA of 3.64/4.00.",
+    "p2": "During my studies I applied theory to practice. As a Teaching Assistant for 4 courses, I gained experience from system modeling (UML, BPMN, AHP) to backend implementation (Laravel, MySQL).",
+    "p3": "During an internship at PT Telkom Akses, I designed and developed an internal e-procurement system that streamlined procurement processes.",
+    "conclusion": "I am now ready to contribute as a System Analyst or Backend Developer in the tech industry—focusing on code quality, clear documentation, and user-centric solutions.",
+    "facts": {
+      "title": "Quick facts",
+      "education": "Education",
+      "educationValue": "B.Sc. Information Systems — Telkom University Jakarta",
+      "gpa": "GPA",
+      "gpaValue": "3.64 / 4.00",
+      "role": "Role",
+      "roleValue": "System Analyst & Full-Stack Developer",
+      "location": "Location",
+      "locationValue": "Makassar, South Sulawesi, Indonesia",
+      "focus": "Focus",
+      "focusValue": "Web apps, UX & decision support systems"
+    }
+  },
+
+  "skills": {
+    "title": "Skills & Tools",
+    "intro": "Taken directly from my CV: programming, tooling, analysis methods, and certification.",
+    "sub": {
+      "programming": "Programming & Framework",
+      "tools": "Tools & Software",
+      "methods": "Methods & Analysis"
+    },
+    "cert": {
+      "title": "Certification",
+      "value": "BNSP Certified System Analyst"
+    }
+  },
+
+  "experience_page": {
+    "title": "Experience & Learning",
+    "intro": "Internship, teaching assistant roles, student organization leadership, and the certificates behind them.",
+    "telkom_access": {
+      "company": "PT Telkom Akses",
+      "role": "Procurement & Management Internship",
+      "period": "Internship",
+      "bullet1": "Designed and developed an internal e-procurement website to streamline procurement processes and partner management.",
+      "bullet2": "Collaborated with field supervisors and internal teams to ensure the system aligned with division workflows."
+    },
+    "teaching_assistant_section": "Teaching Assistant — Telkom University Jakarta",
+    "ta_courses": {
+      "analysis": {
+        "title": "Information Systems Analysis & Design",
+        "b1": "Guided students in understanding and implementing UML diagrams such as Activity, Use Case, Sequence, Class, Deployment, and Component Diagram.",
+        "b2": "Guided students through functional requirements and system design."
+      },
+      "web": {
+        "title": "Web Application Development",
+        "b1": "Mentored students on the concepts and implementation of the Laravel framework in web application development.",
+        "b2": "Ensured students understood MVC architecture and best practices."
+      },
+      "os": {
+        "title": "Operating Systems",
+        "b1": "Responsible for guiding students and managing the virtualization platform using VMware Workstation Pro.",
+        "b2": "Focused on the implementation and configuration of Rocky Linux as the primary lab environment.",
+        "b3": "Directed students in deploying and managing various applications, including Docker."
+      },
+      "enterprise": {
+        "title": "Enterprise Architecture",
+        "b1": "Guided around 40 students in understanding the alignment of business processes and IT infrastructure.",
+        "b2": "Facilitated the design of architecture blueprints (Enterprise Modeling) using Visual Paradigm.",
+        "b3": "Evaluated system integration strategies and business process modeling."
+      }
+    },
+    "org_section": "Organization & Leadership",
+    "org": {
+      "chair_title": "Chairperson, HIMSI",
+      "chair_role": "Information Systems Student Association — Telkom University Jakarta",
+      "chair_b1": "Led and managed a student organization of 45 members.",
+      "chair_b2": "Formulated, implemented, and drove the association's vision, mission, and work program.",
+      "chair_b3": "Supervised the execution of the work program according to plan.",
+      "pr_title": "Public Relations Division",
+      "pr_b1": "Built and maintained good relationships with parties outside the organization.",
+      "pr_b2": "Managed the HIMSI social media account (@himsi_telujkt) with 867 followers."
+    },
+    "cert_section": "Certificates & Licenses",
+    "haki_issuer": "Ministry of Law and Human Rights of the Republic of Indonesia",
+    "haki_desc": "The Copyright Certificate verifies the ability to develop innovative solutions addressing real-world problems.",
+    "bnsp_desc": "The BNSP certification is an official credential validating System Analyst competence, earned through an in-depth analysis of the e-katering system covering requirements gathering, system design with UML, and business process modeling.",
+    "ta_title": "Teaching Assistant",
+    "ta_period": "Telkom University Jakarta • 4 Courses",
+    "ta_desc": "More than an administrative role—proof of leadership, teaching ability, and mastery that goes beyond theory. Guiding dozens of students every semester demonstrates depth of knowledge and the ability to transfer expertise to others.",
+    "cert_view": "View Certificate"
+  },
+
   "projects": {
     "title": "Projects",
     "intro": "Some key projects demonstrating system analysis, technical execution, and ready-to-use results.",
@@ -75,8 +189,7 @@
       "result": "Result",
       "objective": "Objective",
       "platform": "Platform"
-    }
-  ,
+    },
     "items": {
       "project-amira": {
         "title": "Amira Store POS System",
@@ -142,112 +255,13 @@
         }
       }
     }
-  }
+  },
 
-  ,
-  "home": {
-    "eyebrow": "S1 Information Systems - Jakarta Campus • Telkom University",
-    "name": "Muhammad Dafa Hambali",
-    "description": "Project Manager | System Analyst | Teaching Assistant",
-    "stats": {
-      "experience": "Months Experience",
-      "projects": "Major Projects",
-      "gpa": "GPA"
-    },
-    "actions": {
-      "viewPortfolio": "View Portfolio",
-      "downloadCV": "Download CV"
-    }
-  },
-  "about": {
-    "title": "About Me",
-    "p1": "I graduated with a Bachelor's degree in Information Systems from Telkom University Jakarta with a GPA of 3.64/4.00.",
-    "p2": "During my studies I applied theory into practice. As a Teaching Assistant across 4 courses I gained experience from system modeling (UML, BPMN, AHP) to backend implementation (Laravel, MySQL).",
-    "p3": "During an internship at PT Telkom Akses, I designed and developed an internal e-procurement system that streamlined procurement processes.",
-    "skills_heading": "Skills & Tools",
-    "conclusion": "I'm ready to contribute as a System Analyst or Backend Developer with a focus on code quality, clear documentation, and user-centric solutions."
-  },
-  "experience_page": {
-    "title": "Experience & Learning",
-    "telkom_access": {
-      "company": "PT Telkom Akses",
-      "role": "Procurement & Management Internship",
-      "period": "Internship"
-    },
-    "teaching_assistant_section": "Teaching Assistant - Telkom University Jakarta",
-    "cert_view": "View Certificate",
-    "haki_issuer": "Ministry of Law and Human Rights of the Republic of Indonesia",
-    "cert_project_label": "Project:",
-    "haki_desc": "The Copyright certificate demonstrates the ability to develop innovative solutions addressing real problems. The platform is designed to ease Jakarta public transit services with a user-friendly interface and scalable architecture.",
-    "teaching_assistant": {
-      "role_label": "Role",
-      "context_label": "Role"
-    }
-  },
   "contact": {
     "title": "Get In Touch",
     "intro": "Interested in collaborating or have questions? Reach out via one of the channels below. I'll reply as soon as possible! 🚀",
-    "cards": {
-      "email": "Email",
-      "email_action": "Send Email →",
-      "location": "Location",
-      "location_action": "Based in South Sulawesi",
-      "linkedin": "LinkedIn",
-      "linkedin_action": "Visit Profile →",
-      "github": "GitHub",
-      "github_action": "View Repos →",
-      "instagram": "Instagram",
-      "instagram_action": "Follow Me →",
-      "whatsapp": "WhatsApp",
-      "whatsapp_action": "Send Message →"
-    },
-    "cta": {
-      "heading": "Ready to Work Together?",
-      "text": "Let's discuss your next project or collaboration opportunity. I'm open to questions and offers!",
-      "button": "Start Conversation"
-    }
-  }
-  ,
-  "experience_page": {
-    "title": "Experience & Learning",
-    "telkom_access": {
-      "company": "PT Telkom Akses",
-      "role": "Procurement & Management Internship",
-      "period": "Internship",
-      "bullet1": "Designed and developed an internal e-procurement website to streamline procurement processes and partner management.",
-      "bullet2": "Collaborated with field supervisors and internal teams to ensure the system aligned with division workflows."
-    },
-    "haki_issuer": "Ministry of Law and Human Rights of the Republic of Indonesia",
-    "cert_project_label": "Project:",
-    "haki_desc": "The Copyright Certificate verifies the ability to develop innovative solutions addressing real-world problems.",
-    "cert_view": "View Certificate"
-  }
-  ,
-  "home": {
-    "eyebrow": "Software & Systems",
-    "name": "Muhammad Dafa Hambali",
-    "description": "System Analyst and Full-Stack Developer focusing on web applications, UX, and data-driven decision support.",
-    "stats": {
-      "experience": "Years Experience",
-      "projects": "Projects",
-      "gpa": "GPA"
-    },
-    "actions": {
-      "viewPortfolio": "View Portfolio",
-      "downloadCV": "Download CV"
-    }
-  },
-  "about": {
-    "title": "Professional Journey",
-    "p1": "I graduated with a Bachelor's degree in Information Systems from Telkom University Jakarta with a GPA of 3.64/4.00.",
-    "p2": "During my studies I applied theory to practice. As a Teaching Assistant for 4 courses, I gained experience from system modeling (UML, BPMN, AHP) to backend implementation (Laravel, MySQL).",
-    "p3": "During my internship at PT Telkom Akses, I designed and developed an internal e-procurement system that streamlined procurement processes.",
-    "p4": "I am now ready to contribute as a System Analyst or Backend Developer in the tech industry—focusing on code quality, clear documentation, and user-centric solutions.",
-    "conclusion": "Open to collaboration and opportunities to build impactful software."
-  },
-  "contact": {
-    "title": "Contact",
-    "intro": "Feel free to reach out via email, LinkedIn, or social platforms.",
+    "copy": "Copy",
+    "copied": "Copied!",
     "cards": {
       "email": "Email",
       "email_action": "Send Email →",
