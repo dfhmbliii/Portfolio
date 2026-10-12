@@ -3,6 +3,9 @@
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
   "regions": ["sin1"],
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
   "env": {
     "VITE_APP_TITLE": "Muhammad Dafa Hambali Portfolio"
   }
