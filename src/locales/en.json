@@ -8,6 +8,23 @@
     "contact": "Contact"
   },
 
+  "cv": {
+    "options": {
+      "analyst": {
+        "title": "Business Analyst / System Analyst / PMO",
+        "desc": "System analysis, UML, requirement gathering, business process modeling"
+      },
+      "fullstack": {
+        "title": "Full-Stack Web Developer",
+        "desc": "PHP (Laravel), Vue.js, MySQL, UI/UX design, wireframing"
+      },
+      "itqa": {
+        "title": "IT Support / QA / Software Tester",
+        "desc": "IT support, software testing, UAT, and bug reporting"
+      }
+    }
+  },
+
   "home": {
     "eyebrow": "Software & Systems",
     "name": "Muhammad Dafa Hambali",
@@ -204,7 +221,7 @@
       "project-jmt": {
         "title": "Jakarta Metro Transit (JMT) Website",
         "badge": "Full-Stack • IP Registered",
-        "subtitle": "Major coursework | Intellectual Property Protected",
+        "subtitle": "Major coursework • Intellectual Property Protected",
         "points": {
           "achievement": "HAKI Certificate (Recorded Work)",
           "features": "Integrated transit map, ticket simulation",

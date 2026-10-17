@@ -32,9 +32,7 @@
 
       <div class="actions">
         <a class="btn primary" href="#projects">{{ $t('home.actions.viewPortfolio') }}</a>
-        <a class="btn" href="/CV_Muhammad_Dafa_Hambali.pdf" target="_blank" rel="noopener">
-          {{ $t('home.actions.downloadCV') }}
-        </a>
+        <CvDownload />
       </div>
     </div>
 
@@ -51,6 +49,8 @@
 </template>
 
 <script setup>
+import CvDownload from '../components/CvDownload.vue'
+
 const profilePhoto = new URL('../../DAFA00035.JPG', import.meta.url).href
 </script>
 

@@ -63,12 +63,7 @@
       <p class="cta-text">{{ $t('contact.cta.text') }}</p>
       <div class="cta-actions">
         <a href="mailto:dfhmbli09@gmail.com" class="btn primary">{{ $t('contact.cta.button') }}</a>
-        <a
-          class="btn"
-          href="/CV_Muhammad_Dafa_Hambali.pdf"
-          target="_blank"
-          rel="noopener"
-        >{{ $t('home.actions.downloadCV') }}</a>
+        <CvDownload />
       </div>
     </div>
   </section>
@@ -76,6 +71,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import CvDownload from '../components/CvDownload.vue'
 
 const EMAIL = 'dfhmbli09@gmail.com'
 const copied = ref(false)
