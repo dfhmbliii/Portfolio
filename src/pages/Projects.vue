@@ -98,6 +98,17 @@
           </div>
 
           <a
+            v-if="project.liveUrl"
+            class="live-btn"
+            :href="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="live-dot" aria-hidden="true"></span>
+            {{ $t('projects.openLive') }}
+          </a>
+
+          <a
             v-else-if="project.link"
             class="card-link"
             :href="project.link"
@@ -114,6 +125,20 @@
 
 <script setup>
 const projects = [
+  {
+    id: 'project-teras',
+    icon: '☕',
+    titleKey: 'projects.items.project-teras.title',
+    badgeKey: 'projects.items.project-teras.badge',
+    subtitleKey: 'projects.items.project-teras.subtitle',
+    liveUrl: 'https://tamancafe.co-id.id/',
+    points: [
+      { labelKey: 'method', valueKey: 'projects.items.project-teras.points.method' },
+      { labelKey: 'features', valueKey: 'projects.items.project-teras.points.features' },
+      { labelKey: 'tools', valueKey: 'projects.items.project-teras.points.tools' },
+      { labelKey: 'result', valueKey: 'projects.items.project-teras.points.result' },
+    ],
+  },
   {
     id: 'project-amira',
     icon: '📦',
@@ -221,6 +246,18 @@ const projects = [
         ],
         expectedKey: 'projects.testing.cases.nisnTaken.expected',
       },
+    ],
+  },
+  {
+    id: 'project-sap',
+    icon: '📊',
+    titleKey: 'projects.items.project-sap.title',
+    badgeKey: 'projects.items.project-sap.badge',
+    subtitleKey: 'projects.items.project-sap.subtitle',
+    points: [
+      { labelKey: 'method', valueKey: 'projects.items.project-sap.points.method' },
+      { labelKey: 'scope', valueKey: 'projects.items.project-sap.points.scope' },
+      { labelKey: 'result', valueKey: 'projects.items.project-sap.points.result' },
     ],
   },
   {
@@ -492,6 +529,40 @@ const projects = [
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+/* tombol "buka aplikasi live" */
+.live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--gradient);
+  color: var(--accent-contrast);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.live-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px var(--glow-1);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: live-pulse 2s infinite;
+}
+
+@keyframes live-pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 @media (max-width: 860px) {

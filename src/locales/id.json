@@ -142,6 +142,7 @@
     "title": "Proyek",
     "intro": "Beberapa proyek utama yang menunjukkan kombinasi analisis sistem, eksekusi teknis, dan hasil yang bisa langsung dipakai.",
     "viewDetails": "Lihat Detail",
+    "openLive": "Buka Aplikasi",
     "deliverables": {
       "title": "Deliverables"
     },
@@ -214,9 +215,9 @@
         "badge": "React JS • Jira • Project Management",
         "subtitle": "Project Tugas Besar",
         "points": {
-          "role": "Project Manager & System Analyst",
-          "tools": "Jira (sprint, backlog, issue tracking)",
-          "status": "Released & Operational"
+          "role": "Project Manager & System Analyst, termasuk Software Quality Assurance dan UAT sebelum peluncuran",
+          "tools": "Jira untuk perencanaan sprint, pelacakan kendala, dan pelaporan bug",
+          "status": "Rilis tepat waktu, melayani pencatatan barang masuk dan transaksi harian secara akurat"
         }
       },
       "project-jmt": {
@@ -257,9 +258,30 @@
         "badge": "Decision Support System • AHP Algorithm",
         "subtitle": "Tugas Akhir",
         "points": {
-          "method": "MCDM (Multi-Criteria Decision Making) dengan AHP",
-          "function": "Membantu calon mahasiswa memilih jurusan",
-          "result": "Perhitungan real-time & rekomendasi"
+          "method": "MCDM (Multi-Criteria Decision Making) dengan AHP, dibangun sebagai aplikasi web full-stack dengan PHP dan Laravel",
+          "function": "Mengotomatisasi kalkulasi matriks keputusan untuk memberikan rekomendasi jurusan yang objektif",
+          "result": "Rekomendasi real-time, terdokumentasi dengan Test Case dan Test Scenario memakai teknik Equivalence Partitioning untuk positive dan negative testing"
+        }
+      },
+      "project-teras": {
+        "title": "Sistem Pemesanan Taman Teras Cafe",
+        "badge": "Full-Stack • Aplikasi Web Live",
+        "subtitle": "Aplikasi web self-order untuk usaha makanan dan minuman",
+        "points": {
+          "method": "Pengembangan web full-stack untuk mendigitalisasi menu dan mengotomatisasi alur pemesanan mandiri (self-order)",
+          "features": "Menu digital, keranjang belanja, kalkulasi total pesanan, dan riwayat transaksi yang tersimpan di database",
+          "tools": "PHP, Laravel, MySQL, dengan bantuan AI coding assistant (GitHub Copilot) untuk pengembangan fitur dan debugging",
+          "result": "Melakukan deployment dan konfigurasi hosting secara mandiri sehingga aplikasi live dan dapat diakses publik"
+        }
+      },
+      "project-sap": {
+        "title": "Sistem Informasi Akuntansi (SAP ERP)",
+        "badge": "Sistem Enterprise • Proyek Akademis",
+        "subtitle": "Simulasi proses bisnis enterprise dengan modul ERP",
+        "points": {
+          "method": "Mengoperasikan modul SAP ERP untuk mensimulasikan proses bisnis enterprise",
+          "scope": "Manajemen data keuangan dan siklus akuntansi",
+          "result": "Pemahaman praktis tentang bagaimana ERP mengintegrasikan berbagai alur kerja bisnis secara real-time"
         }
       },
       "design-humas": {

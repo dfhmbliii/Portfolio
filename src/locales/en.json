@@ -142,6 +142,7 @@
     "title": "Projects",
     "intro": "Some key projects demonstrating system analysis, technical execution, and ready-to-use results.",
     "viewDetails": "See Details",
+    "openLive": "Open Live App",
     "deliverables": {
       "title": "Deliverables"
     },
@@ -214,9 +215,9 @@
         "badge": "React JS • Jira • Project Management",
         "subtitle": "Major coursework project",
         "points": {
-          "role": "Project Manager & System Analyst",
-          "tools": "Jira (sprint, backlog, issue tracking)",
-          "status": "Released & Operational"
+          "role": "Project Manager & System Analyst, including Software Quality Assurance and UAT before launch",
+          "tools": "Jira for sprint planning, issue tracking, and bug reporting",
+          "status": "Launched on time, serving accurate stock-in and daily transactions"
         }
       },
       "project-jmt": {
@@ -257,9 +258,30 @@
         "badge": "Decision Support System • AHP Algorithm",
         "subtitle": "Final Project",
         "points": {
-          "method": "MCDM (Multi-Criteria Decision Making) with AHP",
-          "function": "Helps prospective students choose majors",
-          "result": "Real-time calculation & recommendations"
+          "method": "MCDM (Multi-Criteria Decision Making) with AHP, built as a full-stack web app with PHP and Laravel",
+          "function": "Automates the decision matrix calculation to give objective major recommendations",
+          "result": "Real-time recommendations, documented with Test Case and Test Scenario using Equivalence Partitioning for positive and negative testing"
+        }
+      },
+      "project-teras": {
+        "title": "Taman Teras Cafe Ordering System",
+        "badge": "Full-Stack • Live Web App",
+        "subtitle": "Self-order web application for a food and beverage outlet",
+        "points": {
+          "method": "Full-stack web development to digitalize the menu and automate a self-order flow",
+          "features": "Digital menu, shopping cart, order total calculation, and transaction history stored in the database",
+          "tools": "PHP, Laravel, MySQL, with an AI coding assistant (GitHub Copilot) for feature development and debugging",
+          "result": "Deployed and configured the hosting independently, so the app runs live and is publicly accessible"
+        }
+      },
+      "project-sap": {
+        "title": "Accounting Information System (SAP ERP)",
+        "badge": "Enterprise Systems • Academic Project",
+        "subtitle": "Simulating enterprise business processes with an ERP module",
+        "points": {
+          "method": "Operated the SAP ERP module to simulate enterprise business processes",
+          "scope": "Financial data management and the accounting cycle",
+          "result": "Practical understanding of how an ERP integrates business workflows in real time"
         }
       },
       "design-humas": {
