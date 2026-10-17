@@ -63,7 +63,7 @@
       <p class="cta-text">{{ $t('contact.cta.text') }}</p>
       <div class="cta-actions">
         <a href="mailto:dfhmbli09@gmail.com" class="btn primary">{{ $t('contact.cta.button') }}</a>
-        <CvDownload />
+        <CvDownload :locale="props.locale" />
       </div>
     </div>
   </section>
@@ -72,6 +72,8 @@
 <script setup>
 import { ref } from 'vue'
 import CvDownload from '../components/CvDownload.vue'
+
+const props = defineProps({ locale: { type: String, default: '' } })
 
 const EMAIL = 'dfhmbli09@gmail.com'
 const copied = ref(false)

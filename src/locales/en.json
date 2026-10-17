@@ -9,6 +9,7 @@
   },
 
   "cv": {
+    "language": "CV language",
     "options": {
       "analyst": {
         "title": "Business Analyst / System Analyst / PMO",

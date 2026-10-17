@@ -25,43 +25,103 @@
       </svg>
     </button>
 
-    <transition name="cv-drop">
-      <ul v-if="open" class="cv-menu">
+    <!-- Tanpa <transition>: transisi leave kadang menyisakan node yatim
+         sehingga handler di dalam menu tidak bisa diklik. Animasi dibuat
+         lewat CSS animation pada saat mount. -->
+    <div v-if="open" :key="lang" :data-lang="lang" class="cv-menu">
+      <div class="cv-menu-head">
+        <span class="cv-menu-label">{{ $t('cv.language') }}</span>
+        <div class="cv-lang" role="group" :aria-label="$t('cv.language')">
+          <button
+            type="button"
+            :class="{ active: lang === 'id' }"
+            :aria-pressed="lang === 'id'"
+            @click="setLang('id')"
+          >ID</button>
+          <button
+            type="button"
+            :class="{ active: lang === 'en' }"
+            :aria-pressed="lang === 'en'"
+            @click="setLang('en')"
+          >EN</button>
+        </div>
+      </div>
+
+      <ul class="cv-list">
         <li v-for="cv in cvs" :key="cv.file">
-          <a :href="cv.file" download @click="open = false">
+          <a :href="cv.file" download @click="close">
             <span class="cv-title">{{ $t(cv.titleKey) }}</span>
             <span class="cv-desc">{{ $t(cv.descKey) }}</span>
-            <span class="cv-ext" aria-hidden="true">PDF ↓</span>
+            <span class="cv-ext" aria-hidden="true">{{ lang.toUpperCase() }} ↓</span>
           </a>
         </li>
       </ul>
-    </transition>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+// PENTING: ambil dari scope GLOBAL. scope lokal punya ref locale sendiri
+// sehingga tidak ikut berubah saat bahasa website diganti.
+const { locale } = useI18n({ useScope: 'global' })
+
+// App meneruskan locale sebagai prop (sumber reaktif yang pasti),
+// dipakai lebih dulu sebelum fallback ke locale global.
+const props = defineProps({ locale: { type: String, default: '' } })
+
+const activeLocale = computed(() => props.locale || locale.value || 'en')
 
 const root = ref(null)
 const open = ref(false)
+// null = ikuti bahasa website; ID/EN = pilihan manual untuk sekali download
+const langOverride = ref(null)
 
-const cvs = [
+const lang = computed(() => {
+  if (langOverride.value) return langOverride.value
+  return activeLocale.value === 'en' ? 'en' : 'id'
+})
+
+const base = [
   {
-    file: '/cv/cv-system-analyst.pdf',
+    slug: 'cv-system-analyst',
     titleKey: 'cv.options.analyst.title',
     descKey: 'cv.options.analyst.desc',
   },
   {
-    file: '/cv/cv-fullstack-web-dev.pdf',
+    slug: 'cv-fullstack-web-dev',
     titleKey: 'cv.options.fullstack.title',
     descKey: 'cv.options.fullstack.desc',
   },
   {
-    file: '/cv/cv-it-support-qa.pdf',
+    slug: 'cv-it-support-qa',
     titleKey: 'cv.options.itqa.title',
     descKey: 'cv.options.itqa.desc',
   },
 ]
+
+const cvs = computed(() =>
+  base.map((cv) => ({
+    ...cv,
+    file: `/cv/${cv.slug}${lang.value === 'en' ? '-en' : ''}.pdf`,
+  }))
+)
+
+function setLang (l) {
+  langOverride.value = l
+}
+
+function close () {
+  open.value = false
+}
+
+// Kalau bahasa CV berubah (oleh ganti bahasa website ATAU tombol ID/EN),
+// tutup menu supaya tidak pernah menampilkan file versi yang salah.
+watch(lang, () => {
+  open.value = false
+})
 
 function onDocClick (e) {
   if (root.value && !root.value.contains(e.target)) open.value = false
@@ -105,23 +165,79 @@ onBeforeUnmount(() => {
   top: calc(100% + 10px);
   left: 0;
   z-index: 60;
-  min-width: 290px;
-  max-width: min(88vw, 360px);
-  margin: 0;
+  min-width: 300px;
+  max-width: min(88vw, 370px);
   padding: 8px;
-  list-style: none;
-  text-align: left;
   background: var(--surface-solid);
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow);
+  animation: cv-in 0.16s ease both;
+  transform-origin: top left;
 }
 
-.cv-menu li + li {
+@keyframes cv-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* header: pemilih bahasa CV */
+.cv-menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 6px 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.cv-menu-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.cv-lang {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+}
+
+.cv-lang button {
+  padding: 3px 11px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.cv-lang button.active {
+  background: var(--gradient);
+  color: var(--accent-contrast);
+}
+
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.cv-list li + li {
   margin-top: 4px;
 }
 
-.cv-menu a {
+.cv-list a {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 2px 10px;
@@ -130,8 +246,8 @@ onBeforeUnmount(() => {
   transition: background 0.18s ease;
 }
 
-.cv-menu a:hover,
-.cv-menu a:focus-visible {
+.cv-list a:hover,
+.cv-list a:focus-visible {
   background: var(--accent-soft);
   outline: none;
 }
@@ -159,17 +275,6 @@ onBeforeUnmount(() => {
   white-space: nowrap;
 }
 
-.cv-drop-enter-active,
-.cv-drop-leave-active {
-  transition: opacity 0.16s ease, transform 0.16s ease;
-}
-
-.cv-drop-enter-from,
-.cv-drop-leave-to {
-  opacity: 0;
-  transform: translateY(-6px);
-}
-
 @media (max-width: 520px) {
   .cv-picker {
     width: 100%;
@@ -179,16 +284,12 @@ onBeforeUnmount(() => {
     width: 100%;
   }
 
+  /* di HP picker full-width, jadi menu cukup selebar picker (tanpa translate) */
   .cv-menu {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     min-width: 0;
     width: 100%;
-  }
-
-  .cv-drop-enter-from,
-  .cv-drop-leave-to {
-    transform: translateX(-50%) translateY(-6px);
   }
 }
 </style>

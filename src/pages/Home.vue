@@ -32,7 +32,7 @@
 
       <div class="actions">
         <a class="btn primary" href="#projects">{{ $t('home.actions.viewPortfolio') }}</a>
-        <CvDownload />
+        <CvDownload :locale="props.locale" />
       </div>
     </div>
 
@@ -50,6 +50,8 @@
 
 <script setup>
 import CvDownload from '../components/CvDownload.vue'
+
+const props = defineProps({ locale: { type: String, default: '' } })
 
 const profilePhoto = new URL('../../DAFA00035.JPG', import.meta.url).href
 </script>

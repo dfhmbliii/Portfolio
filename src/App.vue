@@ -93,12 +93,12 @@
     </header>
 
     <main>
-      <Home id="home" />
+      <Home id="home" :key="`home-${currentLocale}`" :locale="currentLocale" />
       <About id="about" />
       <Skills id="skills" />
       <Experience id="experience" />
       <Projects id="projects" />
-      <Contact id="contact" />
+      <Contact id="contact" :key="`contact-${currentLocale}`" :locale="currentLocale" />
     </main>
 
     <footer class="site-footer">
@@ -120,7 +120,9 @@ import Experience from './pages/Experience.vue'
 import Projects from './pages/Projects.vue'
 import Contact from './pages/Contact.vue'
 
-const { locale } = useI18n()
+// Scope GLOBAL: perubahan bahasa harus lewat ref locale global, kalau tidak
+// komponen lain (mis. pemilih CV) tidak ikut berubah.
+const { locale } = useI18n({ useScope: 'global' })
 const currentLocale = ref(locale.value)
 const year = new Date().getFullYear()
 const menuOpen = ref(false)
