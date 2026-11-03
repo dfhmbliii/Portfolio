@@ -143,6 +143,7 @@
     "intro": "Some key projects demonstrating system analysis, technical execution, and ready-to-use results.",
     "viewDetails": "See Details",
     "openLive": "Open Live App",
+    "viewRepo": "View Repository",
     "deliverables": {
       "title": "Deliverables"
     },
@@ -272,6 +273,17 @@
           "features": "Digital menu, shopping cart, order total calculation, and transaction history stored in the database",
           "tools": "PHP, Laravel, MySQL, with an AI coding assistant (GitHub Copilot) for feature development and debugging",
           "result": "Deployed and configured the hosting independently, so the app runs live and is publicly accessible"
+        }
+      },
+      "project-playwright": {
+        "title": "Klik Indomaret Web Test Automation",
+        "badge": "Playwright • TypeScript • CI Pipeline",
+        "subtitle": "Automated end-to-end shopping flow test on a live e-commerce site",
+        "points": {
+          "method": "End-to-end browser automation of a real shopping flow: category browsing, product selection, and add to cart",
+          "features": "Handles Cloudflare security verification, popup dismissal, navigation retries, and lazy-loaded product lists",
+          "tools": "Playwright Test with TypeScript, multi-browser projects (Chromium, Firefox, WebKit), and an HTML test report",
+          "result": "Runs on every push through GitHub Actions, with the HTML report archived as a build artifact"
         }
       },
       "project-sap": {

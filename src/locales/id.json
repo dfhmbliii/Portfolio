@@ -143,6 +143,7 @@
     "intro": "Beberapa proyek utama yang menunjukkan kombinasi analisis sistem, eksekusi teknis, dan hasil yang bisa langsung dipakai.",
     "viewDetails": "Lihat Detail",
     "openLive": "Buka Aplikasi",
+    "viewRepo": "Lihat Repository",
     "deliverables": {
       "title": "Deliverables"
     },
@@ -272,6 +273,17 @@
           "features": "Menu digital, keranjang belanja, kalkulasi total pesanan, dan riwayat transaksi yang tersimpan di database",
           "tools": "PHP, Laravel, MySQL, dengan bantuan AI coding assistant (GitHub Copilot) untuk pengembangan fitur dan debugging",
           "result": "Melakukan deployment dan konfigurasi hosting secara mandiri sehingga aplikasi live dan dapat diakses publik"
+        }
+      },
+      "project-playwright": {
+        "title": "Otomasi Pengujian Web Klik Indomaret",
+        "badge": "Playwright • TypeScript • CI Pipeline",
+        "subtitle": "Pengujian alur belanja end-to-end pada situs e-commerce sungguhan",
+        "points": {
+          "method": "Otomasi browser end-to-end untuk alur belanja nyata: menjelajah kategori, memilih produk, dan menambahkan ke keranjang",
+          "features": "Menangani verifikasi keamanan Cloudflare, penutupan pop-up, percobaan navigasi ulang, dan daftar produk yang dimuat malas (lazy-load)",
+          "tools": "Playwright Test dengan TypeScript, proyek multi-browser (Chromium, Firefox, WebKit), dan laporan uji berformat HTML",
+          "result": "Berjalan di setiap push melalui GitHub Actions, dengan laporan HTML diarsipkan sebagai artefak build"
         }
       },
       "project-sap": {

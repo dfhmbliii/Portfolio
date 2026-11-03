@@ -115,7 +115,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            {{ $t('projects.viewDetails') }}
+            {{ project.linkLabelKey ? $t(project.linkLabelKey) : $t('projects.viewDetails') }}
           </a>
         </div>
       </article>
@@ -137,6 +137,21 @@ const projects = [
       { labelKey: 'features', valueKey: 'projects.items.project-teras.points.features' },
       { labelKey: 'tools', valueKey: 'projects.items.project-teras.points.tools' },
       { labelKey: 'result', valueKey: 'projects.items.project-teras.points.result' },
+    ],
+  },
+  {
+    id: 'project-playwright',
+    icon: '🤖',
+    titleKey: 'projects.items.project-playwright.title',
+    badgeKey: 'projects.items.project-playwright.badge',
+    subtitleKey: 'projects.items.project-playwright.subtitle',
+    link: 'https://github.com/dfhmbliii/Automation-Web-Test-Klik-Indomaret',
+    linkLabelKey: 'projects.viewRepo',
+    points: [
+      { labelKey: 'method', valueKey: 'projects.items.project-playwright.points.method' },
+      { labelKey: 'features', valueKey: 'projects.items.project-playwright.points.features' },
+      { labelKey: 'tools', valueKey: 'projects.items.project-playwright.points.tools' },
+      { labelKey: 'result', valueKey: 'projects.items.project-playwright.points.result' },
     ],
   },
   {

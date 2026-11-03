@@ -5,7 +5,7 @@
       type="button"
       :aria-expanded="open"
       aria-haspopup="true"
-      @click="open = !open"
+      @click="toggle"
     >
       {{ $t('home.actions.downloadCV') }}
       <svg
@@ -25,38 +25,50 @@
       </svg>
     </button>
 
-    <!-- Tanpa <transition>: transisi leave kadang menyisakan node yatim
+    <!-- Menu di-teleport ke <body> supaya tidak terjebak di dalam stacking
+         context section (backdrop-filter pada .section membuat section menjadi
+         konteks sendiri, sehingga section berikutnya menimpa menu ini).
+         Tanpa <transition>: transisi leave kadang menyisakan node yatim
          sehingga handler di dalam menu tidak bisa diklik. Animasi dibuat
          lewat CSS animation pada saat mount. -->
-    <div v-if="open" :key="lang" :data-lang="lang" class="cv-menu">
-      <div class="cv-menu-head">
-        <span class="cv-menu-label">{{ $t('cv.language') }}</span>
-        <div class="cv-lang" role="group" :aria-label="$t('cv.language')">
-          <button
-            type="button"
-            :class="{ active: lang === 'id' }"
-            :aria-pressed="lang === 'id'"
-            @click="setLang('id')"
-          >ID</button>
-          <button
-            type="button"
-            :class="{ active: lang === 'en' }"
-            :aria-pressed="lang === 'en'"
-            @click="setLang('en')"
-          >EN</button>
+    <Teleport to="body">
+      <div
+        v-if="open"
+        :key="lang"
+        :data-lang="lang"
+        ref="menuEl"
+        class="cv-menu"
+        :style="menuStyle"
+      >
+        <div class="cv-menu-head">
+          <span class="cv-menu-label">{{ $t('cv.language') }}</span>
+          <div class="cv-lang" role="group" :aria-label="$t('cv.language')">
+            <button
+              type="button"
+              :class="{ active: lang === 'id' }"
+              :aria-pressed="lang === 'id'"
+              @click="setLang('id')"
+            >ID</button>
+            <button
+              type="button"
+              :class="{ active: lang === 'en' }"
+              :aria-pressed="lang === 'en'"
+              @click="setLang('en')"
+            >EN</button>
+          </div>
         </div>
-      </div>
 
-      <ul class="cv-list">
-        <li v-for="cv in cvs" :key="cv.file">
-          <a :href="cv.file" download @click="close">
-            <span class="cv-title">{{ $t(cv.titleKey) }}</span>
-            <span class="cv-desc">{{ $t(cv.descKey) }}</span>
-            <span class="cv-ext" aria-hidden="true">{{ lang.toUpperCase() }} ↓</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+        <ul class="cv-list">
+          <li v-for="cv in cvs" :key="cv.file">
+            <a :href="cv.file" download @click="close">
+              <span class="cv-title">{{ $t(cv.titleKey) }}</span>
+              <span class="cv-desc">{{ $t(cv.descKey) }}</span>
+              <span class="cv-ext" aria-hidden="true">{{ lang.toUpperCase() }} ↓</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </Teleport>
   </div>
 </template>
 
@@ -75,7 +87,11 @@ const props = defineProps({ locale: { type: String, default: '' } })
 const activeLocale = computed(() => props.locale || locale.value || 'en')
 
 const root = ref(null)
+const menuEl = ref(null)
 const open = ref(false)
+// Posisi menu dihitung dari rect tombol (position: fixed di <body>),
+// karena menu tidak lagi punya ancestor yang bisa memotong/menimpanya.
+const menuStyle = ref({})
 // null = ikuti bahasa website; ID/EN = pilihan manual untuk sekali download
 const langOverride = ref(null)
 
@@ -117,6 +133,73 @@ function close () {
   open.value = false
 }
 
+function toggle () {
+  open.value = !open.value
+  if (open.value) place()
+  else menuStyle.value = {}
+}
+
+// Perkiraan tinggi menu (head + 3 item + padding). Dipakai untuk memutuskan
+// buka ke atas atau ke bawah SEBELUM menu dirender, sehingga posisinya sudah
+// benar pada frame pertama dan tidak bergantung pada pengukuran ulang.
+const MENU_HEIGHT = 300
+
+function isMobile () {
+  return document.documentElement.clientWidth <= 520
+}
+
+/** Posisi dihitung sepenuhnya dari rect tombol (position: fixed di <body>). */
+function place () {
+  if (!root.value) return
+
+  const t = root.value.getBoundingClientRect()
+  const vw = document.documentElement.clientWidth
+  const vh = document.documentElement.clientHeight
+
+  // tombol sudah keluar layar (mis. halaman di-scroll jauh) -> tutup menu,
+  // supaya tidak ada menu menggantung tanpa tombol pembukanya
+  if (t.bottom < 8 || t.top > vh - 8) {
+    open.value = false
+    menuStyle.value = {}
+    return
+  }
+
+  const gap = 10
+  const edge = 8
+  const width = Math.min(370, vw - 16)
+
+  const spaceBelow = vh - t.bottom - gap - edge
+  const spaceAbove = t.top - gap - edge
+  // buka ke atas bila ruang di bawah tidak cukup dan ruang di atas lebih lega
+  const openUp = spaceBelow < MENU_HEIGHT && spaceAbove > spaceBelow
+
+  const style = {
+    position: 'fixed',
+    maxWidth: width + 'px',
+    top: 'auto',
+    bottom: 'auto',
+  }
+
+  if (isMobile()) {
+    // di HP picker full-width, jadi menu cukup selebar picker
+    style.left = edge + 'px'
+    style.right = edge + 'px'
+    style.width = 'auto'
+    style.maxWidth = 'none'
+  } else {
+    // jaga agar tidak keluar tepi kanan viewport
+    style.left = Math.max(edge, Math.min(t.left, vw - width - edge)) + 'px'
+  }
+
+  if (openUp) {
+    style.bottom = Math.round(vh - t.top + gap) + 'px'
+  } else {
+    style.top = Math.round(t.bottom + gap) + 'px'
+  }
+
+  menuStyle.value = style
+}
+
 // Kalau bahasa CV berubah (oleh ganti bahasa website ATAU tombol ID/EN),
 // tutup menu supaya tidak pernah menampilkan file versi yang salah.
 watch(lang, () => {
@@ -124,21 +207,33 @@ watch(lang, () => {
 })
 
 function onDocClick (e) {
-  if (root.value && !root.value.contains(e.target)) open.value = false
+  if (root.value && root.value.contains(e.target)) return
+  // menu di-teleport ke <body>, jadi dicek terpisah dari root
+  if (menuEl.value && menuEl.value.contains(e.target)) return
+  open.value = false
 }
 
 function onKeydown (e) {
   if (e.key === 'Escape') open.value = false
 }
 
+function onViewportChange () {
+  if (open.value) place()
+}
+
 onMounted(() => {
   document.addEventListener('click', onDocClick)
   document.addEventListener('keydown', onKeydown)
+  // capture: true supaya scroll pada container mana pun ikut menyesuaikan posisi
+  window.addEventListener('scroll', onViewportChange, true)
+  window.addEventListener('resize', onViewportChange)
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', onDocClick)
   document.removeEventListener('keydown', onKeydown)
+  window.removeEventListener('scroll', onViewportChange, true)
+  window.removeEventListener('resize', onViewportChange)
 })
 </script>
 
@@ -160,13 +255,19 @@ onBeforeUnmount(() => {
   transform: rotate(180deg);
 }
 
+/* posisi sebenarnya selalu diisi lewat :style (fixed terhadap viewport);
+   nilai di bawah ini hanya fallback bila script belum sempat menghitung. */
 .cv-menu {
-  position: absolute;
+  position: fixed;
   top: calc(100% + 10px);
   left: 0;
-  z-index: 60;
+  z-index: 120;
   min-width: 300px;
   max-width: min(88vw, 370px);
+  /* jaring pengaman: menu tidak pernah melewati tepi viewport,
+     isi yang kepanjangan jadi bisa di-scroll di dalam menu */
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
   padding: 8px;
   background: var(--surface-solid);
   border: 1px solid var(--border);
@@ -273,23 +374,5 @@ onBeforeUnmount(() => {
   letter-spacing: 0.06em;
   color: var(--accent);
   white-space: nowrap;
-}
-
-@media (max-width: 520px) {
-  .cv-picker {
-    width: 100%;
-  }
-
-  .cv-picker .trigger {
-    width: 100%;
-  }
-
-  /* di HP picker full-width, jadi menu cukup selebar picker (tanpa translate) */
-  .cv-menu {
-    left: 0;
-    right: 0;
-    min-width: 0;
-    width: 100%;
-  }
 }
 </style>
