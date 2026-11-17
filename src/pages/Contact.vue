@@ -1,7 +1,6 @@
 <template>
   <section class="section">
     <header class="section-head">
-      <span class="section-tag">{{ $t('nav.contact') }}</span>
       <h2 class="section-title">{{ $t('contact.title') }}</h2>
       <p class="section-intro">{{ $t('contact.intro') }}</p>
     </header>
@@ -10,7 +9,6 @@
 
     <div class="contact-grid">
       <div class="contact-card">
-        <div class="card-icon" aria-hidden="true">✉️</div>
         <h3 class="card-title">{{ $t('contact.cards.email') }}</h3>
         <p class="card-value">dfhmbli09@gmail.com</p>
         <div class="card-actions">
@@ -31,7 +29,6 @@
         :target="card.external ? '_blank' : undefined"
         :rel="card.external ? 'noopener noreferrer' : undefined"
       >
-        <div class="card-icon" aria-hidden="true">{{ card.icon }}</div>
         <h3 class="card-title">{{ $t(`contact.cards.${card.key}`) }}</h3>
         <p class="card-value">{{ card.value }}</p>
         <span v-if="card.href" class="card-link">{{ $t(`contact.cards.${card.key}_action`) }}</span>
@@ -51,7 +48,6 @@
         :target="card.external ? '_blank' : undefined"
         :rel="card.external ? 'noopener noreferrer' : undefined"
       >
-        <div class="card-icon" aria-hidden="true">{{ card.icon }}</div>
         <h3 class="card-title">{{ $t(`contact.cards.${card.key}`) }}</h3>
         <p class="card-value">{{ card.value }}</p>
         <span class="card-link">{{ $t(`contact.cards.${card.key}_action`) }}</span>
@@ -98,14 +94,14 @@ async function copyEmail () {
 }
 
 const contactLinks = [
-  { key: 'location', icon: '📍', value: 'Makassar, Sulawesi Selatan', href: null, external: false },
-  { key: 'whatsapp', icon: '💬', value: '+62 852-5435-7690', href: 'https://wa.me/6285254357690', external: true },
+  { key: 'location', value: 'Makassar, Sulawesi Selatan', href: null, external: false },
+  { key: 'whatsapp', value: '+62 852-5435-7690', href: 'https://wa.me/6285254357690', external: true },
 ]
 
 const socialLinks = [
-  { key: 'linkedin', icon: '💼', value: 'muhammad-dafa-hambali', href: 'https://www.linkedin.com/in/muhammad-dafa-hambali', external: true },
-  { key: 'github', icon: '💻', value: 'github.com', href: 'https://github.com', external: true },
-  { key: 'instagram', icon: '📸', value: '@dafahambali', href: 'https://www.instagram.com/dafahambali', external: true },
+  { key: 'linkedin', value: 'muhammad-dafa-hambali', href: 'https://www.linkedin.com/in/muhammad-dafa-hambali', external: true },
+  { key: 'github', value: 'github.com/dfhmbliii', href: 'https://github.com/dfhmbliii', external: true },
+  { key: 'instagram', value: '@dafahambali', href: 'https://www.instagram.com/dafahambali', external: true },
 ]
 </script>
 
@@ -137,12 +133,6 @@ a.contact-card:hover {
   transform: translateY(-4px);
   background: var(--surface-3);
   border-color: var(--accent);
-}
-
-.card-icon {
-  font-size: 1.7rem;
-  line-height: 1;
-  margin-bottom: 0.7rem;
 }
 
 .card-title {
@@ -200,9 +190,7 @@ a.contact-card:hover {
   padding: 2.2rem 1.6rem;
   text-align: center;
   border-radius: 18px;
-  background:
-    radial-gradient(circle at top center, var(--glow-1), transparent 60%),
-    var(--surface-2);
+  background: var(--surface-2);
   border: 1px solid var(--border);
 }
 

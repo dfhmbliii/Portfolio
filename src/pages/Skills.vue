@@ -1,13 +1,12 @@
 <template>
   <section class="section">
     <header class="section-head">
-      <span class="section-tag">{{ $t('nav.skills') }}</span>
       <h2 class="section-title">{{ $t('skills.title') }}</h2>
       <p class="section-intro">{{ $t('skills.intro') }}</p>
     </header>
 
     <div v-for="group in groups" :key="group.key" class="skill-block">
-      <h3 class="skill-block-title">{{ group.emoji }} {{ $t(`skills.sub.${group.key}`) }}</h3>
+      <h3 class="skill-block-title">{{ $t(`skills.sub.${group.key}`) }}</h3>
 
       <div v-if="group.tools" class="tech-grid">
         <div v-for="tool in group.tools" :key="tool.name" class="tech-item">
@@ -22,7 +21,6 @@
     </div>
 
     <div class="cert-highlight">
-      <span class="cert-hl-icon" aria-hidden="true">🏆</span>
       <div>
         <span class="cert-hl-title">{{ $t('skills.cert.title') }}</span>
         <span class="cert-hl-value">{{ $t('skills.cert.value') }}</span>
@@ -55,7 +53,6 @@ import githubcopilot from 'simple-icons/icons/githubcopilot.svg?raw'
 const groups = [
   {
     key: 'programming',
-    emoji: '💻',
     tools: [
       { name: 'PHP', color: '#777BB4', svg: php },
       { name: 'Laravel', color: '#FF2D20', svg: laravel },
@@ -65,7 +62,6 @@ const groups = [
   },
   {
     key: 'tools',
-    emoji: '🛠️',
     tools: [
       { name: 'SAP ERP', color: '#0A6ED1', svg: sap },
       { name: 'Jira', color: '#2684FF', svg: jira },
@@ -83,7 +79,6 @@ const groups = [
   },
   {
     key: 'methods',
-    emoji: '📊',
     chips: [
       'Agile (Scrum/Kanban)',
       'System Analysis',
@@ -171,7 +166,7 @@ const groups = [
   display: inline-block;
   padding: 0.38rem 0.85rem;
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--text-strong);
   border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.82rem;
@@ -194,11 +189,6 @@ const groups = [
   background: var(--surface-2);
   border: 1px solid var(--border-soft);
   border-left: 3px solid var(--accent-2);
-}
-
-.cert-hl-icon {
-  font-size: 1.7rem;
-  line-height: 1;
 }
 
 .cert-highlight > div {

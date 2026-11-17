@@ -1,7 +1,6 @@
 <template>
   <section class="section">
     <header class="section-head">
-      <span class="section-tag">{{ $t('nav.experience') }}</span>
       <h2 class="section-title">{{ $t('experience_page.title') }}</h2>
       <p class="section-intro">{{ $t('experience_page.intro') }}</p>
     </header>
@@ -63,7 +62,6 @@
 
     <div class="cert-grid">
       <article class="cert-card" id="haki-certificate">
-        <span class="cert-icon" aria-hidden="true">📜</span>
         <h4 class="card-title sub">{{ $t('projects.items.project-jmt.title') }}</h4>
         <p class="issuer">{{ $t('experience_page.haki_issuer') }}</p>
         <p class="cert-desc">{{ $t('experience_page.haki_desc') }}</p>
@@ -73,7 +71,6 @@
       </article>
 
       <article class="cert-card" id="bnsp-certificate">
-        <span class="cert-icon" aria-hidden="true">🏆</span>
         <h4 class="card-title sub">BNSP System Analyst</h4>
         <p class="issuer">Badan Nasional Sertifikasi Profesi Indonesia</p>
         <p class="cert-desc">{{ $t('experience_page.bnsp_desc') }}</p>
@@ -83,14 +80,13 @@
       </article>
 
       <article class="cert-card wide" id="teaching-assistant">
-        <span class="cert-icon" aria-hidden="true">👨‍🏫</span>
         <h4 class="card-title sub">{{ $t('experience_page.ta_title') }}</h4>
         <p class="issuer">{{ $t('experience_page.ta_period') }}</p>
         <p class="cert-desc">{{ $t('experience_page.ta_desc') }}</p>
         <div class="cert-links">
           <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat_Asprak_Analisis_Perancangan_Sistem_Informasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Analisis Sistem</a>
           <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat_Asprak_Pengembangan_Aplikasi_Website_compressed.pdf" target="_blank" rel="noopener noreferrer">Web Development</a>
-          <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertifikat_Asprak_Sistem_Operasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Sistem Operasi</a>
+          <a class="card-link" href="/Sertifikat/Muhammad Dafa Hambali_Sertikat_Asprak_Sistem_Operasi_compressed.pdf" target="_blank" rel="noopener noreferrer">Sistem Operasi</a>
           <a class="card-link" href="/Sertifikat/Sertifikat_Arsitektur_Enterprise.jpg" target="_blank" rel="noopener noreferrer">Arsitektur Enterprise</a>
         </div>
       </article>
@@ -128,17 +124,8 @@ const teaching = courses.map(([key, count]) => ({
 }
 
 .experience-card {
-  background: var(--surface-2);
-  border: 1px solid var(--border-soft);
-  border-left: 3px solid var(--accent);
-  border-radius: 14px;
-  padding: 1.15rem 1.3rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.experience-card:hover {
-  transform: translateX(4px);
-  border-left-color: var(--accent-2);
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .card-top {
@@ -167,12 +154,9 @@ const teaching = courses.map(([key, count]) => ({
 
 .period {
   flex-shrink: 0;
-  padding: 4px 11px;
-  border-radius: 999px;
-  background: var(--surface-3);
-  color: var(--text-muted);
-  font-size: 0.76rem;
-  font-weight: 600;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -226,12 +210,6 @@ const teaching = courses.map(([key, count]) => ({
 
 .cert-card.wide {
   grid-column: 1 / -1;
-}
-
-.cert-icon {
-  font-size: 1.6rem;
-  line-height: 1;
-  margin-bottom: 0.6rem;
 }
 
 .cert-desc {

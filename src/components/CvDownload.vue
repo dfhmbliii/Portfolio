@@ -26,8 +26,8 @@
     </button>
 
     <!-- Menu di-teleport ke <body> supaya tidak terjebak di dalam stacking
-         context section (backdrop-filter pada .section membuat section menjadi
-         konteks sendiri, sehingga section berikutnya menimpa menu ini).
+         context section mana pun (elemen dengan transform/filter membuat
+         konteks sendiri, dan section berikutnya bisa menimpa menu ini).
          Tanpa <transition>: transisi leave kadang menyisakan node yatim
          sehingga handler di dalam menu tidak bisa diklik. Animasi dibuat
          lewat CSS animation pada saat mount. -->
@@ -323,7 +323,7 @@ onBeforeUnmount(() => {
 }
 
 .cv-lang button.active {
-  background: var(--gradient);
+  background: var(--accent);
   color: var(--accent-contrast);
 }
 
@@ -350,7 +350,7 @@ onBeforeUnmount(() => {
 .cv-list a:hover,
 .cv-list a:focus-visible {
   background: var(--accent-soft);
-  outline: none;
+  outline: 2px solid var(--accent);
 }
 
 .cv-title {

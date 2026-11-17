@@ -1,7 +1,6 @@
 <template>
   <section class="section">
     <header class="section-head">
-      <span class="section-tag">{{ $t('nav.about') }}</span>
       <h2 class="section-title">{{ $t('about.title') }}</h2>
       <p class="section-intro">{{ $t('about.intro') }}</p>
     </header>

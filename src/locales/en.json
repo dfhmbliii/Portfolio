@@ -42,6 +42,7 @@
     },
     "actions": {
       "viewPortfolio": "View Portfolio",
+      "getInTouch": "Get in Touch",
       "downloadCV": "Download CV"
     }
   },
@@ -126,7 +127,7 @@
       "chair_b3": "Supervised the execution of the work program according to plan.",
       "pr_title": "Public Relations Division",
       "pr_b1": "Built and maintained good relationships with parties outside the organization.",
-      "pr_b2": "Managed the HIMSI social media account ({'@'}himsi_telujkt) with 867 followers."
+      "pr_b2": "Managed the HIMSI social media account ({'@'}himsi_telujkt)."
     },
     "cert_section": "Certificates & Licenses",
     "haki_issuer": "Ministry of Law and Human Rights of the Republic of Indonesia",
@@ -283,7 +284,7 @@
           "method": "End-to-end browser automation of a real shopping flow: category browsing, product selection, and add to cart",
           "features": "Handles Cloudflare security verification, popup dismissal, navigation retries, and lazy-loaded product lists",
           "tools": "Playwright Test with TypeScript, multi-browser projects (Chromium, Firefox, WebKit), and an HTML test report",
-          "result": "Runs on every push through GitHub Actions, with the HTML report archived as a build artifact"
+          "result": "The CI pipeline runs on every push and archives the HTML report; the Cloudflare-protected shopping test runs locally (headed)"
         }
       },
       "project-sap": {
@@ -311,7 +312,7 @@
 
   "contact": {
     "title": "Get In Touch",
-    "intro": "Interested in collaborating or have questions? Reach out via one of the channels below. I'll reply as soon as possible! 🚀",
+    "intro": "Interested in collaborating or have questions? Reach out via one of the channels below. I'll reply as soon as possible!",
     "groups": {
       "contact": "Contact",
       "social": "Social Media"
