@@ -1,7 +1,6 @@
 <template>
   <section class="section">
     <header class="section-head">
-      <span class="section-tag">{{ $t('nav.projects') }}</span>
       <h2 class="section-title">{{ $t('projects.title') }}</h2>
       <p class="section-intro">{{ $t('projects.intro') }}</p>
     </header>
@@ -26,7 +25,6 @@
 
         <div class="project-body">
           <div class="project-heading">
-            <span class="project-icon" aria-hidden="true">{{ project.icon }}</span>
             <div>
               <h3 class="project-title">{{ $t(project.titleKey) }}</h3>
               <span class="badge">{{ $t(project.badgeKey) }}</span>
@@ -104,7 +102,6 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span class="live-dot" aria-hidden="true"></span>
             {{ $t('projects.openLive') }}
           </a>
 
@@ -127,7 +124,6 @@
 const projects = [
   {
     id: 'project-teras',
-    icon: '☕',
     titleKey: 'projects.items.project-teras.title',
     badgeKey: 'projects.items.project-teras.badge',
     subtitleKey: 'projects.items.project-teras.subtitle',
@@ -141,7 +137,6 @@ const projects = [
   },
   {
     id: 'project-playwright',
-    icon: '🤖',
     titleKey: 'projects.items.project-playwright.title',
     badgeKey: 'projects.items.project-playwright.badge',
     subtitleKey: 'projects.items.project-playwright.subtitle',
@@ -156,7 +151,6 @@ const projects = [
   },
   {
     id: 'project-amira',
-    icon: '📦',
     titleKey: 'projects.items.project-amira.title',
     badgeKey: 'projects.items.project-amira.badge',
     subtitleKey: 'projects.items.project-amira.subtitle',
@@ -169,7 +163,6 @@ const projects = [
   },
   {
     id: 'project-jmt',
-    icon: '🚇',
     titleKey: 'projects.items.project-jmt.title',
     badgeKey: 'projects.items.project-jmt.badge',
     subtitleKey: 'projects.items.project-jmt.subtitle',
@@ -183,7 +176,6 @@ const projects = [
   },
   {
     id: 'project-ekatering',
-    icon: '🍽️',
     titleKey: 'projects.items.project-ekatering.title',
     badgeKey: 'projects.items.project-ekatering.badge',
     subtitleKey: 'projects.items.project-ekatering.subtitle',
@@ -204,7 +196,6 @@ const projects = [
   },
   {
     id: 'project-pilihanku',
-    icon: '🎓',
     titleKey: 'projects.items.project-pilihanku.title',
     badgeKey: 'projects.items.project-pilihanku.badge',
     subtitleKey: 'projects.items.project-pilihanku.subtitle',
@@ -265,7 +256,6 @@ const projects = [
   },
   {
     id: 'project-sap',
-    icon: '📊',
     titleKey: 'projects.items.project-sap.title',
     badgeKey: 'projects.items.project-sap.badge',
     subtitleKey: 'projects.items.project-sap.subtitle',
@@ -277,7 +267,6 @@ const projects = [
   },
   {
     id: 'design-humas',
-    icon: '🎨',
     titleKey: 'projects.items.design-humas.title',
     badgeKey: 'projects.items.design-humas.badge',
     subtitleKey: 'projects.items.design-humas.subtitle',
@@ -345,11 +334,6 @@ const projects = [
   gap: 0.75rem;
 }
 
-.project-icon {
-  font-size: 1.5rem;
-  line-height: 1.2;
-}
-
 .project-title {
   margin: 0 0 0.5rem;
   color: var(--text-strong);
@@ -363,7 +347,7 @@ const projects = [
   border-radius: 999px;
   background: var(--accent-soft);
   border: 1px solid var(--border);
-  color: var(--accent);
+  color: var(--text-strong);
   font-size: 0.78rem;
   font-weight: 600;
 }
@@ -554,30 +538,15 @@ const projects = [
   margin-top: 1rem;
   padding: 9px 16px;
   border-radius: 999px;
-  background: var(--gradient);
+  background: var(--accent);
   color: var(--accent-contrast);
   font-size: 0.88rem;
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .live-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px var(--glow-1);
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-  animation: live-pulse 2s infinite;
-}
-
-@keyframes live-pulse {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1); }
 }
 
 @media (max-width: 860px) {

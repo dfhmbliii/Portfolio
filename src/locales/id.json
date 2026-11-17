@@ -42,6 +42,7 @@
     },
     "actions": {
       "viewPortfolio": "Lihat Portofolio",
+      "getInTouch": "Hubungi Saya",
       "downloadCV": "Unduh CV"
     }
   },
@@ -126,7 +127,7 @@
       "chair_b3": "Pengawasan pelaksanaan program kerja sesuai rencana.",
       "pr_title": "Divisi Hubungan Masyarakat",
       "pr_b1": "Membangun hubungan baik dengan pihak di luar organisasi.",
-      "pr_b2": "Mengelola akun sosial media HIMSI ({'@'}himsi_telujkt) dengan 867 followers."
+      "pr_b2": "Mengelola akun sosial media HIMSI ({'@'}himsi_telujkt)."
     },
     "cert_section": "Sertifikat & Lisensi",
     "haki_issuer": "Kementerian Hukum dan HAM Republik Indonesia",
@@ -283,7 +284,7 @@
           "method": "Otomasi browser end-to-end untuk alur belanja nyata: menjelajah kategori, memilih produk, dan menambahkan ke keranjang",
           "features": "Menangani verifikasi keamanan Cloudflare, penutupan pop-up, percobaan navigasi ulang, dan daftar produk yang dimuat malas (lazy-load)",
           "tools": "Playwright Test dengan TypeScript, proyek multi-browser (Chromium, Firefox, WebKit), dan laporan uji berformat HTML",
-          "result": "Berjalan di setiap push melalui GitHub Actions, dengan laporan HTML diarsipkan sebagai artefak build"
+          "result": "Pipeline CI berjalan di setiap push dan mengarsipkan laporan HTML; tes belanja yang dilindungi Cloudflare dijalankan lokal (headed)"
         }
       },
       "project-sap": {
@@ -311,7 +312,7 @@
 
   "contact": {
     "title": "Hubungi Saya",
-    "intro": "Tertarik untuk berkolaborasi atau punya pertanyaan? Hubungi saya melalui salah satu channel di bawah. Saya akan merespons secepatnya! 🚀",
+    "intro": "Tertarik untuk berkolaborasi atau punya pertanyaan? Hubungi saya melalui salah satu channel di bawah. Saya akan merespons secepatnya!",
     "groups": {
       "contact": "Kontak",
       "social": "Sosial Media"

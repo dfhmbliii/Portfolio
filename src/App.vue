@@ -1,6 +1,5 @@
 <template>
-  <div class="page-shell">
-    <header class="topbar" :class="{ scrolled: isScrolled }">
+  <header class="topbar" :class="{ scrolled: isScrolled }">
       <a class="brand" href="#home">
         <span class="brand-full">Muhammad Dafa Hambali</span>
         <span class="brand-short">Dafa Hambali</span>
@@ -92,6 +91,7 @@
       </div>
     </header>
 
+  <div class="page-shell">
     <main>
       <Home id="home" :key="`home-${currentLocale}`" :locale="currentLocale" />
       <About id="about" />
@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
 }
 
 .chip-btn.active {
-  background: var(--gradient);
+  background: var(--accent);
   color: var(--accent-contrast);
   border-color: transparent;
 }
